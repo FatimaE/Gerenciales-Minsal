@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SsCarrera" table="ss_carrera">
+    <unique-constraints>
+      <unique-constraint name="ss_carrera_pk" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="nombre" type="string" column="nombre" length="150" nullable="true"/>
+    <field name="remunerado" type="boolean" column="remunerado" nullable="true"/>
+    <field name="habilitada" type="boolean" column="habilitada" nullable="true"/>
+  </entity>
+</doctrine-mapping>

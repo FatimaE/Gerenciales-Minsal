@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SsCarreraInstForm" table="ss_carrera_inst_form">
+    <indexes>
+      <index name="imparte_fk" columns="id_carrera"/>
+      <index name="imparte2_fk" columns="id_institucion_formadora"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="ss_carrera_inst_form_pk" columns="id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <many-to-one field="idInstitucionFormadora" target-entity="SsInstitucionFormadora">
+      <join-columns>
+        <join-column name="id_institucion_formadora" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idCarrera" target-entity="SsCarrera">
+      <join-columns>
+        <join-column name="id_carrera" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

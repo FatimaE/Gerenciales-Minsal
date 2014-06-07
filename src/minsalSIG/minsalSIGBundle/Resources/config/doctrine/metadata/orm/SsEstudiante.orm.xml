@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="SsEstudiante" table="ss_estudiante">
+    <indexes>
+      <index name="estudia_fk" columns="id_carrera_inst_form"/>
+      <index name="pertenece_fk" columns="id_categoria"/>
+      <index name="asignado_fk" columns="id_establecimiento"/>
+      <index name="presenta_fk" columns="id_solicitud_extra"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="cum" type="decimal" column="cum" precision="4" scale="2" nullable="true"/>
+    <field name="anioEgreso" type="integer" column="anio_egreso" nullable="true"/>
+    <field name="mejorCum" type="boolean" column="mejor_cum" nullable="true"/>
+    <field name="remunerado" type="boolean" column="remunerado" nullable="true"/>
+    <field name="notaPrueba" type="decimal" column="nota_prueba" precision="4" scale="2" nullable="true"/>
+    <field name="notaServicioSocial" type="decimal" column="nota_servicio_social" precision="4" scale="2" nullable="true"/>
+    <many-to-one field="idSolicitudExtra" target-entity="SsSolicitudExtra">
+      <join-columns>
+        <join-column name="id_solicitud_extra" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idCategoria" target-entity="SsCategoria">
+      <join-columns>
+        <join-column name="id_categoria" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idCarreraInstForm" target-entity="SsCarreraInstForm">
+      <join-columns>
+        <join-column name="id_carrera_inst_form" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEstablecimiento" target-entity="CtlEstablecimiento">
+      <join-columns>
+        <join-column name="id_establecimiento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
