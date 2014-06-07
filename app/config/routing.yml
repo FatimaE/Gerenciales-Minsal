@@ -1,0 +1,4 @@
+minsal_si_gminsal_sig:
+    resource: "@minsalSIGminsalSIGBundle/Resources/config/routing.yml"
+    prefix:   /
+

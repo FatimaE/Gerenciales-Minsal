@@ -1,0 +1,7 @@
+parameters:
+#    minsal_si_gminsal_sig.example.class: minsalSIG\minsalSIGBundle\Example
+
+services:
+#    minsal_si_gminsal_sig.example:
+#        class: %minsal_si_gminsal_sig.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
