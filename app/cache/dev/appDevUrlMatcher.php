@@ -134,8 +134,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // minsal_si_gminsal_sig_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'minsal_si_gminsal_sig_homepage')), array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\DefaultController::indexAction',));
+        if ($pathinfo === '/index') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\LoginController::indexAction',  '_route' => 'minsal_si_gminsal_sig_homepage',);
         }
 
         // _welcome
