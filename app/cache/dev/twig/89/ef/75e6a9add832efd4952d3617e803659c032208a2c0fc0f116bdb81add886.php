@@ -121,7 +121,9 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         // line 39
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 1)) {
             // line 40
-            echo "\t\t\t    <li><a href=\"#\">Usuarios</a></li> 
+            echo "\t\t\t    <li><a href=\"";
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_consultarUsuario");
+            echo "\">Usuarios</a></li> 
 \t\t\t    <li><a href=\"#\">Crear Usuario</a></li>
 \t\t\t    <li><a href=\"#\">Modificar Usuario</a></li>
                             <li><a href=\"#\">Eliminar Usuario</a></li>                            
@@ -198,6 +200,6 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
 
     public function getDebugInfo()
     {
-        return array (  186 => 74,  179 => 71,  173 => 67,  167 => 62,  156 => 54,  153 => 53,  145 => 49,  141 => 48,  137 => 47,  131 => 45,  124 => 40,  122 => 39,  108 => 28,  103 => 26,  96 => 22,  86 => 14,  83 => 13,  76 => 8,  71 => 7,  68 => 6,  62 => 5,  55 => 78,  53 => 71,  46 => 67,  42 => 65,  40 => 13,  36 => 11,  34 => 6,  30 => 5,  24 => 1,  31 => 4,  28 => 3,);
+        return array (  188 => 74,  181 => 71,  175 => 67,  169 => 62,  158 => 54,  155 => 53,  147 => 49,  143 => 48,  139 => 47,  133 => 45,  124 => 40,  122 => 39,  108 => 28,  103 => 26,  96 => 22,  86 => 14,  83 => 13,  76 => 8,  71 => 7,  68 => 6,  62 => 5,  55 => 78,  53 => 71,  46 => 67,  42 => 65,  40 => 13,  36 => 11,  34 => 6,  30 => 5,  24 => 1,);
     }
 }

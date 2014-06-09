@@ -144,11 +144,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\LoginController::indexAction',  '_route' => 'minsal_si_gminsal_sig_cerrar',);
             }
 
-            // minsal_si_gminsal_sig_cum
-            if ($pathinfo === '/cum') {
-                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\MejorCumController::MejorCumAction',  '_route' => 'minsal_si_gminsal_sig_cum',);
+            // minsal_si_gminsal_sig_consultarUsuario
+            if ($pathinfo === '/consultarUsuario') {
+                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\UsuarioController::ConsultarAction',  '_route' => 'minsal_si_gminsal_sig_consultarUsuario',);
             }
 
+        }
+
+        // minsal_si_gminsal_sig_ModificarUsuario
+        if (0 === strpos($pathinfo, '/ModificarUsuario') && preg_match('#^/ModificarUsuario/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'minsal_si_gminsal_sig_ModificarUsuario')), array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\UsuarioController::EliminarAction',));
+        }
+
+        // minsal_si_gminsal_sig_EliminarUsuario
+        if (0 === strpos($pathinfo, '/EliminarUsuario') && preg_match('#^/EliminarUsuario/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'minsal_si_gminsal_sig_EliminarUsuario')), array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\UsuarioController::EliminarAction',));
+        }
+
+        // minsal_si_gminsal_sig_cum
+        if ($pathinfo === '/cum') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\MejorCumController::MejorCumAction',  '_route' => 'minsal_si_gminsal_sig_cum',);
         }
 
         if (0 === strpos($pathinfo, '/p')) {

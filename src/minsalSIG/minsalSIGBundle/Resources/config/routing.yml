@@ -4,6 +4,15 @@ minsal_si_gminsal_sig_homepage:
 minsal_si_gminsal_sig_cerrar:
     pattern:  /cerrar
     defaults: { _controller: minsalSIGminsalSIGBundle:Login:index }
+minsal_si_gminsal_sig_consultarUsuario:
+    pattern:  /consultarUsuario
+    defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Consultar }
+minsal_si_gminsal_sig_ModificarUsuario:
+    pattern:  /ModificarUsuario/{id}
+    defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Eliminar }
+minsal_si_gminsal_sig_EliminarUsuario:
+    pattern:  /EliminarUsuario/{id}
+    defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Eliminar }
 minsal_si_gminsal_sig_cum:
     pattern:  /cum
     defaults: { _controller: minsalSIGminsalSIGBundle:MejorCum:MejorCum }
