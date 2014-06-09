@@ -97,7 +97,7 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
         // line 22
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/contact.png"), "html", null, true);
         echo "\">
-\t\t\t\t\t<h2 class=\"form-login-heading text-center\">Acceso al SIGAV</h2>
+\t\t\t\t\t<h2 class=\"form-login-heading text-center\">Bienvenido al SIGSS</h2>
 \t\t\t\t</div>
 \t\t\t\t";
         // line 25

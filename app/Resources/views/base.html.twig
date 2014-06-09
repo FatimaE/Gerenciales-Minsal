@@ -1,1 +1,80 @@
-Hola
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}SIGSS{% endblock %}</title>
+        {% block stylesheets %}
+                <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet"/>			
+                <!-- <link href="{{ asset('bootstrap/css/bootstrap-theme.min.css') }}" type="text/css" rel="stylesheet"/> -->
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+            <div class="centerTable">
+                <div class="table-responsive">
+                        <table class="table-borderless" width="0%">
+                                <tbody>
+                                        <tr class="text-center">
+                                                <td rowspan=2 width="20%">									
+                                                </td>
+                                                <td width="60%">
+                                                        <img src="{{asset('images/encabezado.png')}}">
+                                                </td>
+                                                <td rowspan=2 width="25%">
+                                                        <p class="text-center"> 
+                                                                {{ app.session.get('nombre_usuario') }}
+                                                                <br />
+                                                                {{ app.session.get('nombre_rol') }}
+                                                        </p>
+                                                </td>
+                                        </tr>							
+                                </tbody>
+                        </table>
+                </div>
+            </div>	
+            <br />  
+            <div class="container">	   
+                <ol class="breadcrumb text-center">   
+	             {% if app.session.get('id_rol') == 1 %}
+			    <li><a href="#">Usuarios</a></li> 
+			    <li><a href="#">Crear Usuario</a></li>
+			    <li><a href="#">Modificar Usuario</a></li>
+                            <li><a href="#">Eliminar Usuario</a></li>                            
+		     {% endif %}
+		     {% if app.session.get('id_rol') == 2 %} 
+			    <li><a href="#">Perfil</a></li>
+			    <li><a href="#">Mejor CUM de Estudiantes</a></li>
+			    <li><a href="#">Prueba de Conocimiento</a></li>
+			    <li><a href="#">Remunerados y Ad-Honorem</a></li>
+			    <li><a href="#">Estudiantes Aprobados</a></li>
+                            <li><a href="#">Distribución Estudiantes</a></li>
+			    <li><a href="#">Informe final</a></li>			    
+		     {% endif %}    
+		     {% if app.session.get('id_rol') == 3 %} 
+			     <li><a href="#">Perfil</a></li>
+			     <li><a href="#">Prueba de Conocimiento</a></li>
+			     <li><a href="#">Consolidado de Plazas</a></li>
+			     <li><a href="#">Estudiantes Aptos para SS</a></li>
+			     <li><a href="#">Rango de Notas</a></li>
+			     <li><a href="#">Monto Total de Plazas</a></li>				     
+		    {% endif %}
+		</ol>          
+            </div>                                 
+        {% endblock %}
+		<br />
+        
+        {% block body %} {% endblock %}            
+                            
+        <br />
+        <br />
+        {% block footer %} 			
+            <div class="container">
+                <ol class="breadcrumb text-center">                               
+                    <li><a href="#">Cerrar Sesión</a></li>  
+                    <li><a href="#">Ayuda</a></li> 
+                </ol>                      
+            </div>			
+        {% endblock %}        
+    </body>
+</html>

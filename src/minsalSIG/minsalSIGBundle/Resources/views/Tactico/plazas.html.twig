@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="container">
+        <div class="panel panel-info">  
+            <div class="panel-heading">Informe de plazas remuneradas y ad-honorem de estudiantes por region universidad y carrera</div>
+            <div class="panel-body text-center" >
+                <div class="btn-group">            
+                    <table> 
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Período
+                                <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#">Período 1</a></li>
+                                  <li><a href="#">Período 2</a></li>
+                                </ul>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Universidad
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#"></a></li>
+                                <li><a href="#"></a></li>
+                              </ul>
+                            </td>  
+                            <td>
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Carrera
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li>Medicina</li>
+                                <li>Odontologia</li>
+                              </ul>
+                            </td>                              
+                        </tr>
+                    </table>                                   
+                </div>                             
+            </div>
+        </div>
+    </div>     
+{% endblock %}  
+

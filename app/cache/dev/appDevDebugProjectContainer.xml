@@ -25,8 +25,8 @@
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_driver">pdo_pgsql</parameter>
-    <parameter key="database_host">127.0.0.1</parameter>
-    <parameter key="database_port">5433</parameter>
+    <parameter key="database_host">localhost</parameter>
+    <parameter key="database_port">5432</parameter>
     <parameter key="database_name">Base_SIG</parameter>
     <parameter key="database_user">postgres</parameter>
     <parameter key="database_password">Admindb123</parameter>
@@ -2149,8 +2149,8 @@
     <service id="doctrine.dbal.default_connection" class="stdClass" factory-method="createConnection" factory-service="doctrine.dbal.connection_factory">
       <argument type="collection">
         <argument key="driver">pdo_pgsql</argument>
-        <argument key="host">127.0.0.1</argument>
-        <argument key="port">5433</argument>
+        <argument key="host">localhost</argument>
+        <argument key="port">5432</argument>
         <argument key="dbname">Base_SIG</argument>
         <argument key="user">postgres</argument>
         <argument key="password">Admindb123</argument>

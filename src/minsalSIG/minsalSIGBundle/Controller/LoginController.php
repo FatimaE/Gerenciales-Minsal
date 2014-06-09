@@ -40,7 +40,7 @@ class LoginController extends Controller
 				$session->set('nombre_usuario', $usuario->getIdEmpleado()->getPrimerNombre().' '.$usuario->getIdEmpleado()->getPrimerApellido());
 				$session->set('id_rol', $usuario->getIdRol()->getIdRol());
 				$session->set('nombre_rol',$usuario->getIdRol()->getNombreRol());
-				return $this->render('minsalSIGminsalSIGBundle:Index:error.html.twig');
+				return $this->render('minsalSIGminsalSIGBundle:Index:menu.html.twig');
 			}
 			
 		}
