@@ -18,8 +18,11 @@ class LoginController extends Controller
 		$repository=$this->getDoctrine();
 		$user = new FosUserUser();
 		$form = $this->createFormBuilder($user,  array('method' => $request->getMethod()))
-			->add('username', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Nombre de Usuario')))
-			->add('password', 'password', array('attr' => array('class' => 'form-control', 'placeholder' => 'Contraseña')))
+                        
+                        ->add('username', 'text', array('max_length' => 15, 'attr' => array('title'=>'Este campo no puede estar vacio. Debe ingresar solo letras y numeros, minimo 8 y maximo 12 caracteres', 'class' => 'form-control', 'placeholder' => 'Nombre de Usuario', "pattern" => "([a-zA-Z0-9])+")))
+			->add('password', 'password', array('attr' => array('title'=>'Este campo no puede estar vacio.', 'class' => 'form-control', 'placeholder' => 'Contraseña', "pattern" => "([a-zA-Z0-9\s]|-|_|$|%|&)+")))
+			//->add('username', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Nombre de Usuario')))
+			//->add('password', 'password', array('attr' => array('class' => 'form-control', 'placeholder' => 'Contraseña')))
 			//->add('remember', 'checkbox')
 			->add('ingresar', 'submit', array('label' => 'Ingresar', 'attr' => array('class' => 'btn btn-lg btn-primary btn-block')))
 			->getForm();
@@ -41,7 +44,11 @@ class LoginController extends Controller
 				$session->set('id_rol', $usuario->getIdRol()->getIdRol());
 				$session->set('nombre_rol',$usuario->getIdRol()->getNombreRol());
 				return $this->render('minsalSIGminsalSIGBundle:Index:menu.html.twig');
+                                
 			}
+                        else
+                            return $this->render('minsalSIGminsalSIGBundle:Index:error.html.twig');
+    
 			
 		}
 		else

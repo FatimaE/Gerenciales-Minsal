@@ -30,7 +30,7 @@ class __TwigTemplate_6ef15cf3a5e015c829a6652b970c7d4489199e0653ec9fbeefbf1bfd268
         // line 4
         echo "<div class=\"container\">
         <div class=\"panel panel-info\">  
-            <div class=\"panel-heading\">Cuadro estadístico de los resultados de la prueba de conocimiento</div>
+            <div class=\"panel-heading\">Cuadro estadístico de los resultados de la prueba de conocimiento por carrera</div>
             <div class=\"panel-body text-center\" >
                 <div class=\"btn-group\">            
                     <table> 
@@ -64,8 +64,7 @@ class __TwigTemplate_6ef15cf3a5e015c829a6652b970c7d4489199e0653ec9fbeefbf1bfd268
                                 <li><a href=\"#\"></a></li>
                                 <li><a href=\"#\"></a></li>
                               </ul>
-                            </td>  
-                            
+                            </td>                              
                         </tr>
                     </table>                                   
                 </div>                             

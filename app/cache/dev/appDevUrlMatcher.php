@@ -138,6 +138,32 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\LoginController::indexAction',  '_route' => 'minsal_si_gminsal_sig_homepage',);
         }
 
+        if (0 === strpos($pathinfo, '/c')) {
+            // minsal_si_gminsal_sig_cerrar
+            if ($pathinfo === '/cerrar') {
+                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\LoginController::indexAction',  '_route' => 'minsal_si_gminsal_sig_cerrar',);
+            }
+
+            // minsal_si_gminsal_sig_cum
+            if ($pathinfo === '/cum') {
+                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\MejorCumController::MejorCumAction',  '_route' => 'minsal_si_gminsal_sig_cum',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/p')) {
+            // minsal_si_gminsal_sig_plazas
+            if ($pathinfo === '/plazas') {
+                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\PlazasController::PlazasAction',  '_route' => 'minsal_si_gminsal_sig_plazas',);
+            }
+
+            // minsal_si_gminsal_sig_pruebaCon
+            if ($pathinfo === '/pruebaCon') {
+                return array (  '_controller' => 'minsalSIGminsalSIGBundle:PruebaCon:PruebaCon',  '_route' => 'minsal_si_gminsal_sig_pruebaCon',);
+            }
+
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

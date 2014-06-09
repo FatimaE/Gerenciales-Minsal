@@ -1,3 +1,15 @@
 minsal_si_gminsal_sig_homepage:
     pattern:  /index
     defaults: { _controller: minsalSIGminsalSIGBundle:Login:index }
+minsal_si_gminsal_sig_cerrar:
+    pattern:  /cerrar
+    defaults: { _controller: minsalSIGminsalSIGBundle:Login:index }
+minsal_si_gminsal_sig_cum:
+    pattern:  /cum
+    defaults: { _controller: minsalSIGminsalSIGBundle:MejorCum:MejorCum }
+minsal_si_gminsal_sig_plazas:
+    pattern:  /plazas
+    defaults: { _controller: minsalSIGminsalSIGBundle:Plazas:Plazas }
+minsal_si_gminsal_sig_pruebaCon:
+    pattern:  /pruebaCon
+    defaults: { _controller: minsalSIGminsalSIGBundle:PruebaCon:PruebaCon }

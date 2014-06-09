@@ -132,9 +132,18 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 2)) {
             echo " 
 \t\t\t    <li><a href=\"#\">Perfil</a></li>
-\t\t\t    <li><a href=\"#\">Mejor CUM de Estudiantes</a></li>
-\t\t\t    <li><a href=\"#\">Prueba de Conocimiento</a></li>
-\t\t\t    <li><a href=\"#\">Remunerados y Ad-Honorem</a></li>
+\t\t\t    <li><a href=\"";
+            // line 47
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cum");
+            echo "\">Mejor CUM de Estudiantes</a></li>
+\t\t\t    <li><a href=\"";
+            // line 48
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_pruebaCon");
+            echo "\">Prueba de Conocimiento</a></li>
+\t\t\t    <li><a href=\"";
+            // line 49
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_plazas");
+            echo "\">Remunerados y Ad-Honorem</a></li>
 \t\t\t    <li><a href=\"#\">Estudiantes Aprobados</a></li>
                             <li><a href=\"#\">Distribución Estudiantes</a></li>
 \t\t\t    <li><a href=\"#\">Informe final</a></li>\t\t\t    
@@ -171,8 +180,11 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
     {
         echo " \t\t\t
             <div class=\"container\">
-                <ol class=\"breadcrumb text-center\">                               
-                    <li><a href=\"#\">Cerrar Sesión</a></li>  
+                <ol class=\"breadcrumb text-center\"> 
+                    <li><a href=\"";
+        // line 74
+        echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cerrar");
+        echo "\">Cerrar Sesión</a></li>  
                     <li><a href=\"#\">Ayuda</a></li> 
                 </ol>                      
             </div>\t\t\t
@@ -186,6 +198,6 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
 
     public function getDebugInfo()
     {
-        return array (  170 => 71,  164 => 67,  158 => 62,  147 => 54,  144 => 53,  131 => 45,  124 => 40,  122 => 39,  108 => 28,  103 => 26,  96 => 22,  86 => 14,  83 => 13,  76 => 8,  71 => 7,  68 => 6,  62 => 5,  55 => 78,  53 => 71,  46 => 67,  42 => 65,  40 => 13,  36 => 11,  34 => 6,  30 => 5,  24 => 1,);
+        return array (  186 => 74,  179 => 71,  173 => 67,  167 => 62,  156 => 54,  153 => 53,  145 => 49,  141 => 48,  137 => 47,  131 => 45,  124 => 40,  122 => 39,  108 => 28,  103 => 26,  96 => 22,  86 => 14,  83 => 13,  76 => 8,  71 => 7,  68 => 6,  62 => 5,  55 => 78,  53 => 71,  46 => 67,  42 => 65,  40 => 13,  36 => 11,  34 => 6,  30 => 5,  24 => 1,);
     }
 }
