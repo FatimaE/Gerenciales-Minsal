@@ -40,12 +40,12 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
         ";
         // line 17
         $this->displayBlock('body', $context, $blocks);
-        // line 33
+        // line 44
         echo "\t\t
         ";
-        // line 34
+        // line 45
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 38
+        // line 49
         echo "    </body>
 \t
 </html>";
@@ -54,7 +54,7 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
     // line 6
     public function block_title($context, array $blocks = array())
     {
-        echo "SIG_SS";
+        echo "SIGSS";
     }
 
     // line 7
@@ -84,55 +84,69 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
     {
         echo " 
 \t\t\t<div class=\"container\">
+                        <div class=\"centerDiv\">                                                                                         
+                        <img src=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/encabezado.png"), "html", null, true);
+        echo "\">
+                        </div> 
+
+                            <div class=\"panel panel-fondo\">
+                              <div class=\"panel-body\">         
+                            
+                            
 \t\t\t\t";
-        // line 19
+        // line 27
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start', array("attr" => array("class" => "form-login")));
         echo "
 \t\t\t\t";
-        // line 20
+        // line 28
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
 \t\t\t\t<div class=\"centerDiv\">
 \t\t\t\t\t<img src=\"";
-        // line 22
+        // line 30
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/contact.png"), "html", null, true);
         echo "\">
-\t\t\t\t\t<h2 class=\"form-login-heading text-center\">Bienvenido al SIGSS</h2>
+\t\t\t\t\t<h2 class=\"form-login-heading text-center\"><Strong>Bienvenido</Strong></h2>
 \t\t\t\t</div>
-\t\t\t\t";
-        // line 25
+\t\t\t\t<p>";
+        // line 33
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "username"), 'widget');
-        echo "
+        echo "</p>
 \t\t\t\t";
-        // line 26
+        // line 34
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "password"), 'widget');
         echo "
 \t\t\t\t
 \t\t\t\t";
-        // line 28
+        // line 36
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ingresar"), 'widget');
         echo "
 \t\t\t\t";
-        // line 29
+        // line 37
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
 \t\t\t\t";
-        // line 30
+        // line 38
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
+                              
+                             </div>
+                            </div> 
 \t\t\t</div>
 \t\t";
     }
 
-    // line 34
+    // line 45
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 35
+        // line 46
         echo "\t\t\t<script language=\"JavaScript\" src =\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery-2.1.0.min.js"), "html", null, true);
         echo "\"> </script>
 \t\t\t<script language=\"JavaScript\" src =\"";
-        // line 36
+        // line 47
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"> </script>
 \t\t";
@@ -145,6 +159,6 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
 
     public function getDebugInfo()
     {
-        return array (  136 => 36,  131 => 35,  128 => 34,  121 => 30,  117 => 29,  113 => 28,  108 => 26,  104 => 25,  98 => 22,  93 => 20,  89 => 19,  83 => 17,  77 => 11,  73 => 10,  69 => 9,  64 => 8,  61 => 7,  55 => 6,  49 => 38,  47 => 34,  44 => 33,  42 => 17,  36 => 13,  34 => 7,  30 => 6,  23 => 1,);
+        return array (  150 => 47,  145 => 46,  142 => 45,  132 => 38,  128 => 37,  124 => 36,  119 => 34,  115 => 33,  109 => 30,  104 => 28,  100 => 27,  90 => 20,  83 => 17,  77 => 11,  73 => 10,  69 => 9,  64 => 8,  61 => 7,  55 => 6,  49 => 49,  47 => 45,  44 => 44,  42 => 17,  36 => 13,  34 => 7,  30 => 6,  23 => 1,);
     }
 }

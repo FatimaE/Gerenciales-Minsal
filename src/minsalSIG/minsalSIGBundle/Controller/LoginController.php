@@ -24,7 +24,7 @@ class LoginController extends Controller
 			//->add('username', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Nombre de Usuario')))
 			//->add('password', 'password', array('attr' => array('class' => 'form-control', 'placeholder' => 'Contraseña')))
 			//->add('remember', 'checkbox')
-			->add('ingresar', 'submit', array('label' => 'Ingresar', 'attr' => array('class' => 'btn btn-lg btn-primary btn-block')))
+			->add('ingresar', 'submit', array('label' => 'Ingresar', 'attr' => array('class' => 'btn btn-lg btn-info btn-block')))
 			->getForm();
 		$form->handleRequest($request);
 		if ($form->isValid()) {

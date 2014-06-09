@@ -32,7 +32,11 @@ text-align: center; }
 .body-login {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color:#FFFFFF;
+  /*  background-color: #eee;*/
+/*  background-color:#66afe9*/
+/*  background-color: #428bca;*/
+/*  background-color: #B0C4DE;*/
 }
 .form-login {
   max-width: 400px;
@@ -67,4 +71,13 @@ text-align: center; }
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+/*Fondo login*/
+
+.panel-fondo {
+  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+  background-image:         linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+  background-repeat: repeat-x;
 }

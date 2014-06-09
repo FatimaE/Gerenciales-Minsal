@@ -159,7 +159,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // minsal_si_gminsal_sig_pruebaCon
             if ($pathinfo === '/pruebaCon') {
-                return array (  '_controller' => 'minsalSIGminsalSIGBundle:PruebaCon:PruebaCon',  '_route' => 'minsal_si_gminsal_sig_pruebaCon',);
+                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\PruebaConController::PruebaConAction',  '_route' => 'minsal_si_gminsal_sig_pruebaCon',);
             }
 
         }
