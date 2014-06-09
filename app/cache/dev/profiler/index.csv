@@ -261,3 +261,7 @@ be73d3,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/consultarUsua
 a6aadf,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/consultarUsuario,1402355095,
 af97b2,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/consultarUsuario,1402355193,
 366438,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/cerrar,1402355220,
+1d2b42,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/cerrar?form%5B_token%5D=1892c02b8f43cdc2d17c88860575a698b7e3d882&form%5Bingresar%5D=&form%5Bpassword%5D=123&form%5Busername%5D=Cris,1402355444,
+0dc95c,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/consultarUsuario,1402355448,
+8693e4,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/ModificarUsuario/1,1402355451,
+702eed,::1,GET,http://localhost/Gerenciales-Minsal/web/app_dev.php/consultarUsuario,1402355451,
