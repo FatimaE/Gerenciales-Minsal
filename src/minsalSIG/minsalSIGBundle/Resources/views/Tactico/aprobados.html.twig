@@ -8,7 +8,7 @@
                     <div class="divParam">
                         <p>Parámetros necesarios para generar el reporte</p>
                         <table class="tablaCent">
-                            <tr class="text-center">
+                            <tr class="text-left" height="25%">
                                 <td width="25%">
                                     <select>
                                         <option selected>Seleccione un período</option>
@@ -16,16 +16,26 @@
                                         <option value="2">Período 2</option>
                                     </select>
                                 </td>
-                                 <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione una universidad</option>                                        
-                                    </select>
-                                </td>
                                 <td width="25%">
                                     <select>
-                                        <option selected>Seleccione una carrera</option>                                        
+                                        <option selected>Seleccione una carrera</option>                                   
+                                    {% for carreras in carrera %}                                        
+                                        <option > {{ carreras.nombre }} </option>                                       
+                                    {% endfor %}
                                     </select>
                                 </td>
+                            </tr>
+                            <tr class="text-left" height="25%">
+                                
+                                 <td width="25%">
+                                    <select>
+                                        <option selected>Seleccione una universidad</option>
+                                        {% for univs in universidad %}                                        
+                                            <option > {{ univs.nombre }} </option>                                       
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                
                                 <td width="28%">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-default">Generar Reporte</button>
@@ -33,10 +43,17 @@
                                 </td>
                             </tr>
                         </table>                      
-                    </div>                                
+                    </div>
+                <br />
+                <br />
+                {% block content %}   
+                {% endblock %} 
             </div>
-            <br />
-            <br />
+                  
         </div>
     </div>     
-{% endblock %}  
+{% endblock %} 
+
+
+
+
