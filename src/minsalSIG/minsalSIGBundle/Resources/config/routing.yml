@@ -22,3 +22,12 @@ minsal_si_gminsal_sig_plazas:
 minsal_si_gminsal_sig_pruebaCon:
     pattern:  /pruebaCon
     defaults: { _controller: minsalSIGminsalSIGBundle:PruebaCon:PruebaCon }
+minsal_si_gminsal_sig_aprobados:
+    pattern:  /aprobados
+    defaults: { _controller: minsalSIGminsalSIGBundle:Aprobados:Aprobados }
+minsal_si_gminsal_sig_distribucion:
+    pattern:  /distribucion
+    defaults: { _controller: minsalSIGminsalSIGBundle:Distribucion:Distribucion }
+minsal_si_gminsal_sig_informefinal:
+    pattern:  /informefinal
+    defaults: { _controller: minsalSIGminsalSIGBundle:Informefinal:Informefinal }

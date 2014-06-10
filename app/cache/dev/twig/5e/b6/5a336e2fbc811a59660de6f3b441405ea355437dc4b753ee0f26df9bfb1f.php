@@ -69,7 +69,7 @@ class __TwigTemplate_5eb65a336e2fbc811a59660de6f3b441405ea355437dc4b753ee0f26df9
         unset($context['_seq'], $context['_iterated'], $context['type'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 18
-        echo "\t\t<h3 class=\"text-center text-primary\"> Consultar Usuarios </h3>
+        echo "\t\t<h3 class=\"text-center text-primary\"> Usuarios </h3>
 \t\t<br />
 \t\t<div class=\"table-responsive\">
 \t\t\t<table class=\"table table-striped table-hover table-condensed\">

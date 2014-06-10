@@ -19,12 +19,12 @@ class LoginController extends Controller
 		$user = new FosUserUser();
 		$form = $this->createFormBuilder($user,  array('method' => $request->getMethod()))
                         
-                        ->add('username', 'text', array('max_length' => 15, 'attr' => array('title'=>'Este campo no puede estar vacio. Debe ingresar solo letras y numeros, minimo 8 y maximo 12 caracteres', 'class' => 'form-control', 'placeholder' => 'Nombre de Usuario', "pattern" => "([a-zA-Z0-9])+")))
-			->add('password', 'password', array('attr' => array('title'=>'Este campo no puede estar vacio.', 'class' => 'form-control', 'placeholder' => 'Contraseña', "pattern" => "([a-zA-Z0-9\s]|-|_|$|%|&)+")))
+                        ->add('username', 'text', array('max_length' => 15, 'attr' => array('title'=>'Este campo no puede estar vacio. Debe ingresar solo letras y numeros, minimo 8 y maximo 12 caracteres', 'class' => 'form-control', 'placeholder' => 'Nombre de Usuario', 'pattern' => "([a-zA-Z0-9])+")))
+			->add('password', 'password', array('max_length' => 12, 'attr' => array('title'=>'Este campo no puede estar vacio.', 'class' => 'form-control', 'placeholder' => 'Contraseña', 'pattern' => "([a-zA-Z0-9\s]|-|_|$|%|&)+")))
 			//->add('username', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Nombre de Usuario')))
 			//->add('password', 'password', array('attr' => array('class' => 'form-control', 'placeholder' => 'Contraseña')))
 			//->add('remember', 'checkbox')
-			->add('ingresar', 'submit', array('label' => 'Ingresar', 'attr' => array('class' => 'btn btn-lg btn-info btn-block')))
+			->add('ingresar', 'submit', array('label' => 'Iniciar Sesión', 'attr' => array('class' => 'btn btn-lg btn-primary btn-block')))
 			->getForm();
 		$form->handleRequest($request);
 		if ($form->isValid()) {

@@ -179,6 +179,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // minsal_si_gminsal_sig_aprobados
+        if ($pathinfo === '/aprobados') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\AprobadosController::AprobadosAction',  '_route' => 'minsal_si_gminsal_sig_aprobados',);
+        }
+
+        // minsal_si_gminsal_sig_distribucion
+        if ($pathinfo === '/distribucion') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\DistribucionController::DistribucionAction',  '_route' => 'minsal_si_gminsal_sig_distribucion',);
+        }
+
+        // minsal_si_gminsal_sig_informefinal
+        if ($pathinfo === '/informefinal') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\InformefinalController::InformefinalAction',  '_route' => 'minsal_si_gminsal_sig_informefinal',);
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
