@@ -3,7 +3,7 @@
 {% block body -%}
     <div class="container">
         <div class="panel panel-info">  
-            <div class="panel-heading">Reporte del número de estudiantes aprobados para realizar el servicio social</div>
+            <div class="panel-heading">Cuadro comparativo del monto total de plazas remuneradas por carrera</div>
             <div class="panel-body text-center" >                 
                     <div class="divParam">
                         <p>Parámetros necesarios para generar el reporte</p>
@@ -22,9 +22,9 @@
                                     </select>
                                 </td>
                                 <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione una carrera</option>                                        
-                                    </select>
+                                    Carrera <br />                                
+                                    <input type="radio" name="carrera" id="carrera" value="M" class="left"/>Medicina
+                                    <input type="radio" name="carrera" id="carrera" value="O" class="left"/>Odontología
                                 </td>
                                 <td width="28%">
                                     <div class="btn-group">

@@ -180,11 +180,26 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 3)) {
             echo " 
 \t\t\t     <li><a href=\"#\">Perfil</a></li>
-\t\t\t     <li><a href=\"#\">Prueba de Conocimiento</a></li>
-\t\t\t     <li><a href=\"#\">Consolidado de Plazas</a></li>
-\t\t\t     <li><a href=\"#\">Estudiantes Aptos para SS</a></li>
-\t\t\t     <li><a href=\"#\">Rango de Notas</a></li>
-\t\t\t     <li><a href=\"#\">Monto Total de Plazas</a></li>\t\t\t\t     
+\t\t\t     <li><a href=\"";
+            // line 57
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_promPrueba");
+            echo "\">Prueba de Conocimiento</a></li>
+\t\t\t     <li><a href=\"";
+            // line 58
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_conplazas");
+            echo "\">Consolidado de Plazas</a></li>
+\t\t\t     <li><a href=\"";
+            // line 59
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_estudiantes");
+            echo "\">Estudiantes Aptos para SS</a></li>
+\t\t\t     <li><a href=\"";
+            // line 60
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_rangoNotas");
+            echo "\">Rango de Notas</a></li>
+\t\t\t     <li><a href=\"";
+            // line 61
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_montoTotal");
+            echo "\">Monto Total de Plazas</a></li>\t\t\t\t     
 \t\t    ";
         }
         // line 63
@@ -236,6 +251,6 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
 
     public function getDebugInfo()
     {
-        return array (  227 => 82,  222 => 81,  219 => 80,  210 => 75,  203 => 72,  197 => 68,  191 => 63,  180 => 55,  177 => 54,  172 => 53,  168 => 52,  164 => 51,  160 => 50,  156 => 49,  152 => 48,  146 => 46,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 84,  60 => 80,  57 => 79,  55 => 72,  48 => 68,  44 => 66,  42 => 14,  37 => 11,  35 => 6,  31 => 5,  25 => 1,);
+        return array (  242 => 82,  237 => 81,  234 => 80,  225 => 75,  218 => 72,  212 => 68,  206 => 63,  201 => 61,  197 => 60,  193 => 59,  189 => 58,  185 => 57,  180 => 55,  177 => 54,  172 => 53,  168 => 52,  164 => 51,  160 => 50,  156 => 49,  152 => 48,  146 => 46,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 84,  60 => 80,  57 => 79,  55 => 72,  48 => 68,  44 => 66,  42 => 14,  37 => 11,  35 => 6,  31 => 5,  25 => 1,);
     }
 }

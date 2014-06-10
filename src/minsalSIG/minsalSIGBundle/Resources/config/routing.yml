@@ -31,3 +31,18 @@ minsal_si_gminsal_sig_distribucion:
 minsal_si_gminsal_sig_informefinal:
     pattern:  /informefinal
     defaults: { _controller: minsalSIGminsalSIGBundle:Informefinal:Informefinal }
+minsal_si_gminsal_sig_conplazas:
+    pattern:  /conplazas
+    defaults: { _controller: minsalSIGminsalSIGBundle:ConsolidadoPlaza:ConsolidadoPlaza }
+minsal_si_gminsal_sig_estudiantes:
+    pattern:  /estudiantes
+    defaults: { _controller: minsalSIGminsalSIGBundle:Estudiantes:Estudiantes }
+minsal_si_gminsal_sig_montoTotal:
+    pattern:  /montoTotal
+    defaults: { _controller: minsalSIGminsalSIGBundle:MontoTotal:MontoTotal }
+minsal_si_gminsal_sig_promPrueba:
+    pattern:  /promPrueba
+    defaults: { _controller: minsalSIGminsalSIGBundle:PromPrueba:PromPrueba }
+minsal_si_gminsal_sig_rangoNotas:
+    pattern:  /rangoNotas
+    defaults: { _controller: minsalSIGminsalSIGBundle:RangoNotas:RangoNotas }

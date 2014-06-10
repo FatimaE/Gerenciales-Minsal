@@ -30,7 +30,7 @@ class __TwigTemplate_69f350d0b562215d1f07c2e7c010bce1f6eac3fc528e5f65b363b668989
         // line 4
         echo "<div class=\"container\">
         <div class=\"panel panel-info\">  
-            <div class=\"panel-heading\">Informe de la distribución de estudiantes en servicio social</div>
+            <div class=\"panel-heading\">Informe de la distribución de estudiantes en servicio social, por hospitales, sibasi y carrera</div>
             <div class=\"panel-body text-center\" >                 
                     <div class=\"divParam\">
                         <p>Parámetros necesarios para generar el reporte</p>

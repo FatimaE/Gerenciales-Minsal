@@ -30,7 +30,7 @@ class __TwigTemplate_0764260891a7e6225354372da51d50fcffa4f89f4d85af8478ac8ad7129
         // line 4
         echo "<div class=\"container\">
         <div class=\"panel panel-info\">  
-            <div class=\"panel-heading\">Informe final del proceso de servicio social</div>
+            <div class=\"panel-heading\">Informe final del proceso de servicio social por universidad</div>
             <div class=\"panel-body text-center\" >                 
                     <div class=\"divParam\">
                         <p>Parámetros necesarios para generar el reporte</p>

@@ -54,11 +54,11 @@
 		     {% endif %}    
 		     {% if app.session.get('id_rol') == 3 %} 
 			     <li><a href="#">Perfil</a></li>
-			     <li><a href="#">Prueba de Conocimiento</a></li>
-			     <li><a href="#">Consolidado de Plazas</a></li>
-			     <li><a href="#">Estudiantes Aptos para SS</a></li>
-			     <li><a href="#">Rango de Notas</a></li>
-			     <li><a href="#">Monto Total de Plazas</a></li>				     
+			     <li><a href="{{url('minsal_si_gminsal_sig_promPrueba')}}">Prueba de Conocimiento</a></li>
+			     <li><a href="{{url('minsal_si_gminsal_sig_conplazas')}}">Consolidado de Plazas</a></li>
+			     <li><a href="{{url('minsal_si_gminsal_sig_estudiantes')}}">Estudiantes Aptos para SS</a></li>
+			     <li><a href="{{url('minsal_si_gminsal_sig_rangoNotas')}}">Rango de Notas</a></li>
+			     <li><a href="{{url('minsal_si_gminsal_sig_montoTotal')}}">Monto Total de Plazas</a></li>				     
 		    {% endif %}
 		</ol>          
             </div>                                 

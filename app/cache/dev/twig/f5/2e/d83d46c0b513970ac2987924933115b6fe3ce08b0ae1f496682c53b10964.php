@@ -30,7 +30,7 @@ class __TwigTemplate_f52ed83d46c0b513970ac2987924933115b6fe3ce08b0ae1f496682c53b
         // line 4
         echo "<div class=\"container\">
         <div class=\"panel panel-info\">  
-            <div class=\"panel-heading\">Informe de plazas remuneradas y ad-honorem de estudiantes por region universidad y carrera</div>
+            <div class=\"panel-heading\">Informe de plazas remuneradas y ad-honorem de estudiantes por region, universidad y carrera</div>
             <div class=\"panel-body text-center\" >
                 <div class=\"divParam\">
                     <p>Parámetros necesarios para generar el reporte</p>

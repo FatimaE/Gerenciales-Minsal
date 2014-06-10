@@ -194,6 +194,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\InformefinalController::InformefinalAction',  '_route' => 'minsal_si_gminsal_sig_informefinal',);
         }
 
+        // minsal_si_gminsal_sig_conplazas
+        if ($pathinfo === '/conplazas') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\ConsolidadoPlazaController::ConsolidadoPlazaAction',  '_route' => 'minsal_si_gminsal_sig_conplazas',);
+        }
+
+        // minsal_si_gminsal_sig_estudiantes
+        if ($pathinfo === '/estudiantes') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\EstudiantesController::EstudiantesAction',  '_route' => 'minsal_si_gminsal_sig_estudiantes',);
+        }
+
+        // minsal_si_gminsal_sig_montoTotal
+        if ($pathinfo === '/montoTotal') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\MontoTotalController::MontoTotalAction',  '_route' => 'minsal_si_gminsal_sig_montoTotal',);
+        }
+
+        // minsal_si_gminsal_sig_promPrueba
+        if ($pathinfo === '/promPrueba') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\PromPruebaController::PromPruebaAction',  '_route' => 'minsal_si_gminsal_sig_promPrueba',);
+        }
+
+        // minsal_si_gminsal_sig_rangoNotas
+        if ($pathinfo === '/rangoNotas') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\RangoNotasController::RangoNotasAction',  '_route' => 'minsal_si_gminsal_sig_rangoNotas',);
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {

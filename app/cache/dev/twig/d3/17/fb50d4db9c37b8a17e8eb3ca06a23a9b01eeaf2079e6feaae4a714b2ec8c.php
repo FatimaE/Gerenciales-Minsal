@@ -30,7 +30,7 @@ class __TwigTemplate_d317fb50d4db9c37b8a17e8eb3ca06a23a9b01eeaf2079e6feaae4a714b
         // line 4
         echo "<div class=\"container\">
         <div class=\"panel panel-info\">  
-            <div class=\"panel-heading\">Reporte del número de estudiantes aprobados para realizar el servicio social</div>
+            <div class=\"panel-heading\">Reporte del número de estudiantes aprobados para realizar el servicio social, por carrera y universidad</div>
             <div class=\"panel-body text-center\" >                 
                     <div class=\"divParam\">
                         <p>Parámetros necesarios para generar el reporte</p>
