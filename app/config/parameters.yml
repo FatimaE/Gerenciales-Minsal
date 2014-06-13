@@ -1,7 +1,8 @@
+# This file is auto-generated during the composer install
 parameters:
     database_driver: pdo_pgsql
     database_host: localhost
-    database_port: '5432'
+    database_port: '5433'
     database_name: Base_SIG
     database_user: postgres
     database_password: Admindb123
@@ -11,4 +12,3 @@ parameters:
     mailer_password: null
     locale: en
     secret: ee097918c71603ceced6e732bcb9657206d3b6b3
-    database_path: null

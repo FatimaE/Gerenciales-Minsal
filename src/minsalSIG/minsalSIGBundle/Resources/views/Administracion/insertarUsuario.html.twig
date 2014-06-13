@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<div class="container top">
+	<div class="jumbotron">
+		{% include 'BraincraftedBootstrapBundle::flash.html.twig' with { 'close': true } %}
+		{{ form(form, { 'style': 'horizontal', 'label_col': 3, 'widget_col': 3  }) }}
+		{{ form_errors(form, { 'global_errors': true }) }}
+		{{ form_end(form) }}
+		<br />
+		<div id="pass-info">
+		</div>
+	</div>
+</div>
+<div class="container top">
+	<a href="{{ path('minsal_si_gminsal_sig_consultarUsuario') }}">
+		<button type="button" id="Regresar" name="Regresar" class="btn btn-lm btn-default">Regresar a Consultar Usuarios</button>
+	</a>
+</div>
+{% endblock %}
+{% block js %}
+	<script language="JavaScript" src ="{{asset('js/password_checker.js')}}"> </script>
+{% endblock %}

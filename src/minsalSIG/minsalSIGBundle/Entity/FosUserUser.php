@@ -30,13 +30,6 @@ class FosUserUser
     private $username;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="enabled", type="boolean", nullable=false)
-     */
-    private $enabled;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
@@ -96,29 +89,6 @@ class FosUserUser
     public function getUsername()
     {
         return $this->username;
-    }
-
-    /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     * @return FosUserUser
-     */
-    public function setEnabled($enabled)
-    {
-        $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * Get enabled
-     *
-     * @return boolean 
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
     }
 
     /**

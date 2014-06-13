@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<div class="container top">
+	<div class="jumbotron">
+		{% for type, flashMessage in app.session.flashbag.all() %}
+			<div class="alert alert-{{ type }} fade in">
+				<button class="close" data-dismiss="alert" type="button">×</button>
+				{% if flashMessage.title is defined %}
+				<strong>{{ flashMessage.title }}</strong>
+				{{ flashMessage.message }}
+				{% else %}
+				{{ type }}
+				{% endif %}
+			</div>
+		{% endfor %}
+		{{ form_start(form, {'attr': {'class': 'form-horizontal'}} ) }}
+		{{ form_errors(form) }}
+                <div class="form-group">
+			<label for="empleado" class="col-lg-3 control-label">Nombre del empleado</label>
+			<div class="col-lg-4">
+				{{ form_widget(form.empleado) }}
+			</div>
+		</div>
+                <div class="form-group">
+			<label for="rol" class="col-lg-3 control-label">Rol del Usuario</label>
+			<div class="col-lg-4">
+				{{ form_widget(form.rol) }}
+			</div>
+		</div>        
+                
+		<div class="form-group">
+			<label for="username" class="col-lg-3 control-label">Nombre de Usuario</label>
+			<div class="col-lg-4">
+				{{ form_widget(form.username) }}
+			</div>
+		</div>
+		<br />
+		<div class="col-lg-offset-1 col-lg-2">
+			{{ form_widget(form.Guardar) }}
+		</div>
+		<div class="col-lg-2">
+			{{ form_widget(form.Limpiar) }}
+		</div>
+		
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+	</div>
+</div>
+<div class="container top">
+	<a href="{{ path('minsal_si_gminsal_sig_consultarUsuario') }}">
+		<button type="button" id="Regresar" name="Regresar" class="btn btn-lm btn-default">Regresar a Consultar Usuarios</button>
+	</a>
+</div>
+{% endblock %}
+{% block js %}
+	<script language="JavaScript" src ="{{asset('js/password_checker.js')}}"> </script>
+{% endblock %}

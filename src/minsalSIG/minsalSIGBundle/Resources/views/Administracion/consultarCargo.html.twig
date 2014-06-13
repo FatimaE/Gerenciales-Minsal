@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+<div id="target">
+</div>
+<div class="container top">
+	<div class="jumbotron">
+		<h3 class="text-center text-primary"> Cargos </h3>
+		<br />
+            	{% include 'BraincraftedBootstrapBundle::flash.html.twig' with { 'close': true } %}
+		<div class="table-responsive">
+			<table class="table table-striped table-hover table-condensed">
+				<tbody>
+					
+					<tr class="success">
+						<td class="table-header"> Nombre  </td>
+						<td class="table-header"> Descripcion </td>
+                                                <td class="table-header"> Acciones </d>
+                                                        
+                                        </tr>
+					{% for Cargo in cargos %}
+						<tr>
+                                                    	<td> {{ Cargo.nombreCargo }} </td>
+                                                        <td> {{ Cargo.descripcion }} </td>
+							<td> 
+                                                            <a href="{{ url('minsal_si_gminsal_sig_modificarCargo', {'idCargo': Cargo.idCargo})}}"> <img border='0' src="{{asset('images/update.png')}}" /> </a>
+                                                            <a href="{{ url('minsal_si_gminsal_sig_eliminarCargo', {'idCargo': Cargo.idCargo})}}" onclick="return confirm('¿Seguro que desea continuar con la eliminación?')"> <img border='0' src="{{asset('images/delete.png')}}" /> </a>
+							      
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="container top">
+	{{ form_start(form) }}
+	{{ form_errors(form) }}
+            <a href="{{ path('minsal_si_gminsal_sig_insertarCargo') }}">{{ form_widget(form.NuevoCargo) }}</a>
+	{{ form_end(form, {'render_rest': false}) }}
+</div>
+{% endblock %}

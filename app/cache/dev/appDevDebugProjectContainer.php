@@ -39,9 +39,19 @@ class appDevDebugProjectContainer extends Container
             'assetic.cache' => 'getAssetic_CacheService',
             'assetic.controller' => 'getAssetic_ControllerService',
             'assetic.filter.cssrewrite' => 'getAssetic_Filter_CssrewriteService',
+            'assetic.filter.lessphp' => 'getAssetic_Filter_LessphpService',
             'assetic.filter_manager' => 'getAssetic_FilterManagerService',
             'assetic.request_listener' => 'getAssetic_RequestListenerService',
             'assetic.value_supplier.default' => 'getAssetic_ValueSupplier_DefaultService',
+            'braincrafted_bootstrap.flash' => 'getBraincraftedBootstrap_FlashService',
+            'braincrafted_bootstrap.form.extension.typesetter_extension' => 'getBraincraftedBootstrap_Form_Extension_TypesetterExtensionService',
+            'braincrafted_bootstrap.form.type.collection' => 'getBraincraftedBootstrap_Form_Type_CollectionService',
+            'braincrafted_bootstrap.form.type.form_actions' => 'getBraincraftedBootstrap_Form_Type_FormActionsService',
+            'braincrafted_bootstrap.form.type.money' => 'getBraincraftedBootstrap_Form_Type_MoneyService',
+            'braincrafted_bootstrap.twig.badge_extension' => 'getBraincraftedBootstrap_Twig_BadgeExtensionService',
+            'braincrafted_bootstrap.twig.form_extension' => 'getBraincraftedBootstrap_Twig_FormExtensionService',
+            'braincrafted_bootstrap.twig.icon_extension' => 'getBraincraftedBootstrap_Twig_IconExtensionService',
+            'braincrafted_bootstrap.twig.label_extension' => 'getBraincraftedBootstrap_Twig_LabelExtensionService',
             'cache_clearer' => 'getCacheClearerService',
             'cache_warmer' => 'getCacheWarmerService',
             'controller_name_converter' => 'getControllerNameConverterService',
@@ -282,8 +292,9 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_AssetManagerService()
     {
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/var/www/Gerenciales-Minsal/app/cache/dev/assetic/config'), true)));
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('config' => new \Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader(), 'twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/var/www/Gerenciales-Minsal/app/cache/dev/assetic/config'), true)));
 
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource(array('bootstrap_css' => array(0 => array(0 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/less/bootstrap.less', 1 => '/var/www/Gerenciales-Minsal/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/DependencyInjection/../Resources/less/form.less'), 1 => array(0 => 'lessphp'), 2 => array('output' => 'css/bootstrap.css')), 'bootstrap_js' => array(0 => array(0 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/transition.js', 1 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/alert.js', 2 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/button.js', 3 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/carousel.js', 4 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/collapse.js', 5 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/dropdown.js', 6 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/modal.js', 7 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/tooltip.js', 8 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/popover.js', 9 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/scrollspy.js', 10 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/tab.js', 11 => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap/js/affix.js', 12 => '/var/www/Gerenciales-Minsal/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/DependencyInjection/../Resources/js/bc-bootstrap-collection.js'), 1 => array(), 2 => array('output' => 'js/bootstrap.js')), 'jquery' => array(0 => array(0 => '/var/www/Gerenciales-Minsal/app/../vendor/jquery/jquery/jquery-1.10.2.js'), 1 => array(), 2 => array('output' => 'js/jquery.js')))), 'config');
         $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', '/var/www/Gerenciales-Minsal/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
@@ -319,6 +330,28 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'assetic.filter.lessphp' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Assetic\Filter\LessphpFilter A Assetic\Filter\LessphpFilter instance.
+     */
+    protected function getAssetic_Filter_LessphpService()
+    {
+        require_once '/var/www/Gerenciales-Minsal/app/../vendor/leafo/lessphp/lessc.inc.php';
+
+        $this->services['assetic.filter.lessphp'] = $instance = new \Assetic\Filter\LessphpFilter();
+
+        $instance->setPresets(array());
+        $instance->setLoadPaths(array());
+        $instance->setFormatter(NULL);
+        $instance->setPreserveComments(NULL);
+
+        return $instance;
+    }
+
+    /**
      * Gets the 'assetic.filter_manager' service.
      *
      * This service is shared.
@@ -328,7 +361,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_FilterManagerService()
     {
-        return $this->services['assetic.filter_manager'] = new \Symfony\Bundle\AsseticBundle\FilterManager($this, array('cssrewrite' => 'assetic.filter.cssrewrite'));
+        return $this->services['assetic.filter_manager'] = new \Symfony\Bundle\AsseticBundle\FilterManager($this, array('lessphp' => 'assetic.filter.lessphp', 'cssrewrite' => 'assetic.filter.cssrewrite'));
     }
 
     /**
@@ -342,6 +375,123 @@ class appDevDebugProjectContainer extends Container
     protected function getAssetic_RequestListenerService()
     {
         return $this->services['assetic.request_listener'] = new \Symfony\Bundle\AsseticBundle\EventListener\RequestListener();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.flash' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Session\FlashMessage A Braincrafted\Bundle\BootstrapBundle\Session\FlashMessage instance.
+     */
+    protected function getBraincraftedBootstrap_FlashService()
+    {
+        return $this->services['braincrafted_bootstrap.flash'] = new \Braincrafted\Bundle\BootstrapBundle\Session\FlashMessage($this->get('session'));
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.form.extension.typesetter_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Form\Extension\TypeSetterExtension A Braincrafted\Bundle\BootstrapBundle\Form\Extension\TypeSetterExtension instance.
+     */
+    protected function getBraincraftedBootstrap_Form_Extension_TypesetterExtensionService()
+    {
+        return $this->services['braincrafted_bootstrap.form.extension.typesetter_extension'] = new \Braincrafted\Bundle\BootstrapBundle\Form\Extension\TypeSetterExtension();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.form.type.collection' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Form\Type\BootstrapCollectionType A Braincrafted\Bundle\BootstrapBundle\Form\Type\BootstrapCollectionType instance.
+     */
+    protected function getBraincraftedBootstrap_Form_Type_CollectionService()
+    {
+        return $this->services['braincrafted_bootstrap.form.type.collection'] = new \Braincrafted\Bundle\BootstrapBundle\Form\Type\BootstrapCollectionType();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.form.type.form_actions' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Form\Type\FormActionsType A Braincrafted\Bundle\BootstrapBundle\Form\Type\FormActionsType instance.
+     */
+    protected function getBraincraftedBootstrap_Form_Type_FormActionsService()
+    {
+        return $this->services['braincrafted_bootstrap.form.type.form_actions'] = new \Braincrafted\Bundle\BootstrapBundle\Form\Type\FormActionsType();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.form.type.money' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Form\Type\MoneyType A Braincrafted\Bundle\BootstrapBundle\Form\Type\MoneyType instance.
+     */
+    protected function getBraincraftedBootstrap_Form_Type_MoneyService()
+    {
+        return $this->services['braincrafted_bootstrap.form.type.money'] = new \Braincrafted\Bundle\BootstrapBundle\Form\Type\MoneyType();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.twig.badge_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension A Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension instance.
+     */
+    protected function getBraincraftedBootstrap_Twig_BadgeExtensionService()
+    {
+        return $this->services['braincrafted_bootstrap.twig.badge_extension'] = new \Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapBadgeExtension();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.twig.form_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapFormExtension A Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapFormExtension instance.
+     */
+    protected function getBraincraftedBootstrap_Twig_FormExtensionService()
+    {
+        return $this->services['braincrafted_bootstrap.twig.form_extension'] = new \Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapFormExtension();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.twig.icon_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapIconExtension A Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapIconExtension instance.
+     */
+    protected function getBraincraftedBootstrap_Twig_IconExtensionService()
+    {
+        return $this->services['braincrafted_bootstrap.twig.icon_extension'] = new \Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapIconExtension();
+    }
+
+    /**
+     * Gets the 'braincrafted_bootstrap.twig.label_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapLabelExtension A Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapLabelExtension instance.
+     */
+    protected function getBraincraftedBootstrap_Twig_LabelExtensionService()
+    {
+        return $this->services['braincrafted_bootstrap.twig.label_extension'] = new \Braincrafted\Bundle\BootstrapBundle\Twig\BootstrapLabelExtension();
     }
 
     /**
@@ -531,7 +681,7 @@ class appDevDebugProjectContainer extends Container
         $b = new \Doctrine\DBAL\Configuration();
         $b->setSQLLogger($a);
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_pgsql', 'host' => 'localhost', 'port' => '5432', 'dbname' => 'Base_SIG', 'user' => 'postgres', 'password' => 'Admindb123', 'charset' => 'UTF8', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_pgsql', 'host' => 'localhost', 'port' => '5433', 'dbname' => 'Base_SIG', 'user' => 'postgres', 'password' => 'Admindb123', 'charset' => 'UTF8', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
     }
 
     /**
@@ -717,7 +867,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'braincrafted_bootstrap.form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'button' => 'form.type.button', 'submit' => 'form.type.submit', 'reset' => 'form.type.reset', 'currency' => 'form.type.currency', 'entity' => 'form.type.entity', 'bootstrap_collection' => 'braincrafted_bootstrap.form.type.collection', 'form_actions' => 'braincrafted_bootstrap.form.type.form_actions'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf', 3 => 'braincrafted_bootstrap.form.extension.typesetter_extension'), 'repeated' => array(0 => 'form.type_extension.repeated.validator'), 'submit' => array(0 => 'form.type_extension.submit.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -2812,10 +2962,14 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig')), $this->get('form.csrf_provider', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'BraincraftedBootstrapBundle:Form:bootstrap.html.twig')), $this->get('form.csrf_provider', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
+        $instance->addExtension($this->get('braincrafted_bootstrap.twig.icon_extension'));
+        $instance->addExtension($this->get('braincrafted_bootstrap.twig.label_extension'));
+        $instance->addExtension($this->get('braincrafted_bootstrap.twig.badge_extension'));
+        $instance->addExtension($this->get('braincrafted_bootstrap.twig.form_extension'));
         $instance->addExtension($this->get('twig.extension.acme.demo'));
         $instance->addGlobal('app', $this->get('templating.globals'));
 
@@ -2865,6 +3019,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/var/www/Gerenciales-Minsal/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
         $instance->addPath('/var/www/Gerenciales-Minsal/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('/var/www/Gerenciales-Minsal/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
+        $instance->addPath('/var/www/Gerenciales-Minsal/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/views', 'BraincraftedBootstrap');
         $instance->addPath('/var/www/Gerenciales-Minsal/src/minsalSIG/minsalSIGBundle/Resources/views', 'minsalSIGminsalSIG');
         $instance->addPath('/var/www/Gerenciales-Minsal/src/Acme/DemoBundle/Resources/views', 'AcmeDemo');
         $instance->addPath('/var/www/Gerenciales-Minsal/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
@@ -2998,6 +3153,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), '/var/www/Gerenciales-Minsal/app/../web', true);
 
+        $instance->addWorker(new \Assetic\Factory\Worker\EnsureFilterWorker('/\\.less$/', $this->get('assetic.filter.lessphp')));
         $instance->addWorker(new \Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker());
 
         return $instance;
@@ -3316,6 +3472,7 @@ class appDevDebugProjectContainer extends Container
                 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
+                'BraincraftedBootstrapBundle' => 'Braincrafted\\Bundle\\BootstrapBundle\\BraincraftedBootstrapBundle',
                 'minsalSIGminsalSIGBundle' => 'minsalSIG\\minsalSIGBundle\\minsalSIGminsalSIGBundle',
                 'AcmeDemoBundle' => 'Acme\\DemoBundle\\AcmeDemoBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
@@ -3326,7 +3483,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.container_class' => 'appDevDebugProjectContainer',
             'database_driver' => 'pdo_pgsql',
             'database_host' => 'localhost',
-            'database_port' => '5432',
+            'database_port' => '5433',
             'database_name' => 'Base_SIG',
             'database_user' => 'postgres',
             'database_password' => 'Admindb123',
@@ -3336,7 +3493,6 @@ class appDevDebugProjectContainer extends Container
             'mailer_password' => NULL,
             'locale' => 'en',
             'secret' => 'ee097918c71603ceced6e732bcb9657206d3b6b3',
-            'database_path' => NULL,
             'controller_resolver.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             'controller_name_converter.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
             'response_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener',
@@ -3608,6 +3764,7 @@ class appDevDebugProjectContainer extends Container
             'twig.exception_listener.controller' => 'twig.controller.exception:showAction',
             'twig.form.resources' => array(
                 0 => 'form_div_layout.html.twig',
+                1 => 'BraincraftedBootstrapBundle:Form:bootstrap.html.twig',
             ),
             'debug.templating.engine.twig.class' => 'Symfony\\Bundle\\TwigBundle\\Debug\\TimedTwigEngine',
             'twig.options' => array(
@@ -3718,6 +3875,15 @@ class appDevDebugProjectContainer extends Container
             'assetic.node.bin' => '/usr/bin/node',
             'assetic.ruby.bin' => '/usr/bin/ruby',
             'assetic.sass.bin' => '/usr/bin/sass',
+            'assetic.filter.lessphp.class' => 'Assetic\\Filter\\LessphpFilter',
+            'assetic.filter.lessphp.presets' => array(
+
+            ),
+            'assetic.filter.lessphp.paths' => array(
+
+            ),
+            'assetic.filter.lessphp.formatter' => NULL,
+            'assetic.filter.lessphp.preserve_comments' => NULL,
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
             'assetic.twig_extension.functions' => array(
 
@@ -3795,6 +3961,22 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.converter.doctrine.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
+            'braincrafted_bootstrap.form.type.collection.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Form\\Type\\BootstrapCollectionType',
+            'braincrafted_bootstrap.form.type.money.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Form\\Type\\MoneyType',
+            'braincrafted_bootstrap.form.type.form_actions.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Form\\Type\\FormActionsType',
+            'braincrafted_bootstrap.form.extension.typesetter_extension.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Form\\Extension\\TypeSetterExtension',
+            'braincrafted_bootstrap.twig.icon_extension.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Twig\\BootstrapIconExtension',
+            'braincrafted_bootstrap.twig.label_extension.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Twig\\BootstrapLabelExtension',
+            'braincrafted_bootstrap.twig.badge_extension.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Twig\\BootstrapBadgeExtension',
+            'braincrafted_bootstrap.twig.form_extension.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Twig\\BootstrapFormExtension',
+            'braincrafted_bootstrap.flash.class' => 'Braincrafted\\Bundle\\BootstrapBundle\\Session\\FlashMessage',
+            'braincrafted_bootstrap.customize' => array(
+                'bootstrap_output' => '/var/www/Gerenciales-Minsal/app/Resources/less/bootstrap.less',
+                'bootstrap_template' => 'BraincraftedBootstrapBundle:Bootstrap:bootstrap.less.twig',
+            ),
+            'braincrafted_bootstrap.assets_dir' => '/var/www/Gerenciales-Minsal/app/../vendor/twbs/bootstrap',
+            'braincrafted_bootstrap.output_dir' => '',
+            'braincrafted_bootstrap.less_filter' => 'lessphp',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',

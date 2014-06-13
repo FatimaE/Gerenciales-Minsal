@@ -40,25 +40,25 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         ";
         // line 14
         $this->displayBlock('header', $context, $blocks);
-        // line 66
+        // line 65
         echo "\t\t<br />
         
         ";
-        // line 68
+        // line 67
         $this->displayBlock('body', $context, $blocks);
         echo "            
                             
         <br />
         <br />
         ";
-        // line 72
+        // line 71
         $this->displayBlock('footer', $context, $blocks);
-        // line 79
+        // line 78
         echo "   
         ";
-        // line 80
+        // line 79
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 84
+        // line 83
         echo "    </body>
 </html>
 ";
@@ -137,91 +137,93 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
             echo "\t\t\t    <li><a href=\"";
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_consultarUsuario");
             echo "\">Usuarios</a></li> 
-\t\t\t    <li><a href=\"#\">Crear Usuario</a></li>
-\t\t\t    <li><a href=\"#\">Modificar Usuario</a></li>
-                            <li><a href=\"#\">Eliminar Usuario</a></li>                            
+\t\t\t    <li><a href=\"";
+            // line 42
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_consultarCargo");
+            echo "\">Cargos</a></li>
+\t\t\t    <li><a href=\"#\">Empleados</a></li>                  
 \t\t     ";
         }
-        // line 46
+        // line 45
         echo "\t\t     ";
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 2)) {
             echo " 
 \t\t\t    <li><a href=\"#\">Perfil</a></li>
 \t\t\t    <li><a href=\"";
-            // line 48
+            // line 47
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cum");
             echo "\">Mejor CUM de Estudiantes</a></li>
 \t\t\t    <li><a href=\"";
-            // line 49
+            // line 48
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_pruebaCon");
             echo "\">Prueba de Conocimiento</a></li>
 \t\t\t    <li><a href=\"";
-            // line 50
+            // line 49
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_plazas");
             echo "\">Remunerados y Ad-Honorem</a></li>
 \t\t\t    <li><a href=\"";
-            // line 51
+            // line 50
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_aprobados");
             echo "\">Estudiantes Aprobados</a></li>
                             <li><a href=\"";
-            // line 52
+            // line 51
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_distribucion");
             echo "\">Distribución Estudiantes</a></li>
 \t\t\t    <li><a href=\"";
-            // line 53
+            // line 52
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_informefinal");
             echo "\">Informe final</a></li>\t\t\t\t\t    
 \t\t     ";
         }
-        // line 54
+        // line 53
         echo "    
 \t\t     ";
-        // line 55
+        // line 54
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 3)) {
             echo " 
 \t\t\t     <li><a href=\"#\">Perfil</a></li>
 \t\t\t     <li><a href=\"";
-            // line 57
+            // line 56
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_promPrueba");
             echo "\">Prueba de Conocimiento</a></li>
 \t\t\t     <li><a href=\"";
-            // line 58
+            // line 57
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_conplazas");
             echo "\">Consolidado de Plazas</a></li>
 \t\t\t     <li><a href=\"";
-            // line 59
+            // line 58
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_estudiantes");
             echo "\">Estudiantes Aptos para SS</a></li>
 \t\t\t     <li><a href=\"";
-            // line 60
+            // line 59
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_rangoNotas");
             echo "\">Rango de Notas</a></li>
 \t\t\t     <li><a href=\"";
-            // line 61
+            // line 60
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_montoTotal");
             echo "\">Monto Total de Plazas</a></li>\t\t\t\t     
 \t\t    ";
         }
-        // line 63
+        // line 62
         echo "\t\t</ol>          
             </div>                                 
         ";
     }
 
-    // line 68
+    // line 67
     public function block_body($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 72
+    // line 71
     public function block_footer($context, array $blocks = array())
     {
         echo " \t\t\t
             <div class=\"container\">
                 <ol class=\"breadcrumb text-center\"> 
                     <li><a href=\"";
-        // line 75
+        // line 74
         echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cerrar");
         echo "\">Cerrar Sesión</a></li>  
                     <li><a href=\"#\">Ayuda</a></li> 
@@ -230,15 +232,15 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         ";
     }
 
-    // line 80
+    // line 79
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 81
+        // line 80
         echo "            <script language=\"JavaScript\" src =\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bootstrap/js/bootstrap.js"), "html", null, true);
         echo "\"> </script> 
             <script language=\"JavaScript\" src =\"";
-        // line 82
+        // line 81
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery-2.1.0.min.js"), "html", null, true);
         echo "\"> </script>
         ";
@@ -251,6 +253,6 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
 
     public function getDebugInfo()
     {
-        return array (  242 => 82,  237 => 81,  234 => 80,  225 => 75,  218 => 72,  212 => 68,  206 => 63,  201 => 61,  197 => 60,  193 => 59,  189 => 58,  185 => 57,  180 => 55,  177 => 54,  172 => 53,  168 => 52,  164 => 51,  160 => 50,  156 => 49,  152 => 48,  146 => 46,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 84,  60 => 80,  57 => 79,  55 => 72,  48 => 68,  44 => 66,  42 => 14,  37 => 11,  35 => 6,  31 => 5,  25 => 1,);
+        return array (  244 => 81,  239 => 80,  236 => 79,  227 => 74,  220 => 71,  214 => 67,  208 => 62,  203 => 60,  199 => 59,  195 => 58,  191 => 57,  187 => 56,  182 => 54,  179 => 53,  174 => 52,  170 => 51,  166 => 50,  162 => 49,  158 => 48,  154 => 47,  148 => 45,  142 => 42,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 83,  60 => 79,  57 => 78,  55 => 71,  48 => 67,  44 => 65,  42 => 14,  37 => 11,  35 => 6,  31 => 5,  25 => 1,);
     }
 }

@@ -7,12 +7,27 @@ minsal_si_gminsal_sig_cerrar:
 minsal_si_gminsal_sig_consultarUsuario:
     pattern:  /consultarUsuario
     defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Consultar }
+minsal_si_gminsal_sig_InsertarUsuario:
+    pattern:  /InsertarUsuario
+    defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Insertar }
 minsal_si_gminsal_sig_ModificarUsuario:
     pattern:  /ModificarUsuario/{id}
-    defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Eliminar }
+    defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Modificar }
 minsal_si_gminsal_sig_EliminarUsuario:
     pattern:  /EliminarUsuario/{id}
     defaults: { _controller: minsalSIGminsalSIGBundle:Usuario:Eliminar }
+minsal_si_gminsal_sig_consultarCargo:
+    pattern:  /consultarCargo
+    defaults: { _controller: minsalSIGminsalSIGBundle:Cargo:Consultar }
+minsal_si_gminsal_sig_insertarCargo:
+    pattern:  /insertarCargo
+    defaults: { _controller: minsalSIGminsalSIGBundle:Cargo:Insertar }
+minsal_si_gminsal_sig_modificarCargo:
+    pattern:  /modificarCargo/{idCargo}
+    defaults: { _controller: minsalSIGminsalSIGBundle:Cargo:Modificar }
+minsal_si_gminsal_sig_eliminarCargo:
+    pattern:  /eliminarCargo/{idCargo}
+    defaults: { _controller: minsalSIGminsalSIGBundle:Cargo:Eliminar }
 minsal_si_gminsal_sig_cum:
     pattern:  /cum
     defaults: { _controller: minsalSIGminsalSIGBundle:MejorCum:MejorCum }
