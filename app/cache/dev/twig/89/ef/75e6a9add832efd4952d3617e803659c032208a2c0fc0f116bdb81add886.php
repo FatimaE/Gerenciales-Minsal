@@ -135,13 +135,16 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 1)) {
             // line 41
             echo "\t\t\t    <li><a href=\"";
-            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_consultarUsuario");
-            echo "\">Usuarios</a></li> 
-\t\t\t    <li><a href=\"";
-            // line 42
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_consultarCargo");
             echo "\">Cargos</a></li>
-\t\t\t    <li><a href=\"#\">Empleados</a></li>                  
+\t\t\t    <li><a href=\"";
+            // line 42
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_consultarEmpleado");
+            echo "\">Empleados</a></li> 
+                            <li><a href=\"";
+            // line 43
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_consultarUsuario");
+            echo "\">Usuarios</a></li> 
 \t\t     ";
         }
         // line 45
@@ -253,6 +256,6 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
 
     public function getDebugInfo()
     {
-        return array (  244 => 81,  239 => 80,  236 => 79,  227 => 74,  220 => 71,  214 => 67,  208 => 62,  203 => 60,  199 => 59,  195 => 58,  191 => 57,  187 => 56,  182 => 54,  179 => 53,  174 => 52,  170 => 51,  166 => 50,  162 => 49,  158 => 48,  154 => 47,  148 => 45,  142 => 42,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 83,  60 => 79,  57 => 78,  55 => 71,  48 => 67,  44 => 65,  42 => 14,  37 => 11,  35 => 6,  25 => 1,  31 => 5,  28 => 3,);
+        return array (  247 => 81,  242 => 80,  239 => 79,  230 => 74,  223 => 71,  217 => 67,  211 => 62,  206 => 60,  202 => 59,  198 => 58,  194 => 57,  190 => 56,  185 => 54,  182 => 53,  177 => 52,  173 => 51,  169 => 50,  165 => 49,  161 => 48,  157 => 47,  151 => 45,  146 => 43,  142 => 42,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 83,  60 => 79,  57 => 78,  55 => 71,  48 => 67,  44 => 65,  42 => 14,  37 => 11,  35 => 6,  31 => 5,  25 => 1,);
     }
 }

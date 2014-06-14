@@ -75,6 +75,9 @@ class __TwigTemplate_7dd005ff2aee1f15e49bc5924284bb86e5d18ec389cfe40bbc2df906278
             // line 27
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["univs"]) ? $context["univs"] : $this->getContext($context, "univs")), "nombre"), "html", null, true);
             echo "</th>
+                                <!--Hay que hacer un for (para cada col dentro de fla), para cada registro en carrera_institucion
+                                y comparar si el id_inst_carrera recuperado es igual al de la tabla se imprime el valor obtenido, 
+                                caso contrario se imprime 0-->
                                 <th>1</th>
                                 <th>1</th>
                                 <th>1</th>
@@ -97,7 +100,7 @@ class __TwigTemplate_7dd005ff2aee1f15e49bc5924284bb86e5d18ec389cfe40bbc2df906278
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['univs'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 46
+        // line 49
         echo "                    </tbody>
                     
                           
@@ -106,7 +109,7 @@ class __TwigTemplate_7dd005ff2aee1f15e49bc5924284bb86e5d18ec389cfe40bbc2df906278
               
                 </table> 
                     <a href=\"";
-        // line 53
+        // line 56
         echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cum");
         echo "\"> Regresar </a>          
                 <br />
@@ -130,6 +133,6 @@ class __TwigTemplate_7dd005ff2aee1f15e49bc5924284bb86e5d18ec389cfe40bbc2df906278
 
     public function getDebugInfo()
     {
-        return array (  110 => 53,  101 => 46,  76 => 27,  73 => 26,  69 => 25,  63 => 21,  54 => 20,  50 => 19,  36 => 8,  31 => 5,  28 => 3,);
+        return array (  113 => 56,  104 => 49,  76 => 27,  73 => 26,  69 => 25,  63 => 21,  54 => 20,  50 => 19,  36 => 8,  31 => 5,  28 => 3,);
     }
 }

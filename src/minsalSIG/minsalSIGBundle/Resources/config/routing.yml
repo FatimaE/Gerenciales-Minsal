@@ -64,3 +64,6 @@ minsal_si_gminsal_sig_rangoNotas:
 minsal_si_gminsal_sig_conTodos1:
     pattern:  /todos1
     defaults: { _controller: minsalSIGminsalSIGBundle:MejorCum:todos }
+minsal_si_gminsal_sig_rep2_tact_todo:
+    pattern:  /rep2
+    defaults: { _controller: minsalSIGminsalSIGBundle:PruebaCon:todos }
