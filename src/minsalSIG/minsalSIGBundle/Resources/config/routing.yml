@@ -61,3 +61,6 @@ minsal_si_gminsal_sig_promPrueba:
 minsal_si_gminsal_sig_rangoNotas:
     pattern:  /rangoNotas
     defaults: { _controller: minsalSIGminsalSIGBundle:RangoNotas:RangoNotas }
+minsal_si_gminsal_sig_conTodos1:
+    pattern:  /todos1
+    defaults: { _controller: minsalSIGminsalSIGBundle:MejorCum:todos }

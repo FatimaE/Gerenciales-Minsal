@@ -681,7 +681,7 @@ class appDevDebugProjectContainer extends Container
         $b = new \Doctrine\DBAL\Configuration();
         $b->setSQLLogger($a);
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_pgsql', 'host' => 'localhost', 'port' => '5433', 'dbname' => 'Base_SIG', 'user' => 'postgres', 'password' => 'Admindb123', 'charset' => 'UTF8', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_pgsql', 'host' => 'localhost', 'port' => '5432', 'dbname' => 'Base_SIG', 'user' => 'postgres', 'password' => 'Admindb123', 'charset' => 'UTF8', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
     }
 
     /**
@@ -3483,7 +3483,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.container_class' => 'appDevDebugProjectContainer',
             'database_driver' => 'pdo_pgsql',
             'database_host' => 'localhost',
-            'database_port' => '5433',
+            'database_port' => '5432',
             'database_name' => 'Base_SIG',
             'database_user' => 'postgres',
             'database_password' => 'Admindb123',

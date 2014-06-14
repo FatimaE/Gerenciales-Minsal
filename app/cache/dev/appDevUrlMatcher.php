@@ -360,6 +360,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\RangoNotasController::RangoNotasAction',  '_route' => 'minsal_si_gminsal_sig_rangoNotas',);
         }
 
+        // minsal_si_gminsal_sig_conTodos1
+        if ($pathinfo === '/todos1') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\MejorCumController::todosAction',  '_route' => 'minsal_si_gminsal_sig_conTodos1',);
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
