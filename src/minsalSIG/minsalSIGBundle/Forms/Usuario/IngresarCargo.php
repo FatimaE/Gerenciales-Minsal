@@ -12,8 +12,8 @@ class IngresarCargo extends AbstractType
 			->add('nombreCargo', 'text', array( 'label' => 'Nombre del cargo'))
 			->add('descripcion', 'text', array('label' => 'Descripcion del cargo'))
 			->add('agregar', 'submit', array('label' => 'Agregar cargo', 'attr' => array('style' => 'inline')))
-			->add('limpiar', 'reset', array('label' => 'Limpiar campos', 'attr' => array('style' => 'inline')))
-			->add('regresar', 'button', array('label' => 'Regresar', 'attr' => array('style' => 'inline')));
+			->add('limpiar', 'reset', array('label' => 'Limpiar campos', 'attr' => array('style' => 'inline')));
+			
     }
 
     public function getName()

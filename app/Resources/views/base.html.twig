@@ -38,9 +38,9 @@
             <div class="container">	   
                 <ol class="breadcrumb text-center">   
 	             {% if app.session.get('id_rol') == 1 %}
-			    <li><a href="{{url('minsal_si_gminsal_sig_consultarUsuario')}}">Usuarios</a></li> 
 			    <li><a href="{{url('minsal_si_gminsal_sig_consultarCargo')}}">Cargos</a></li>
-			    <li><a href="#">Empleados</a></li>                  
+			    <li><a href="{{url('minsal_si_gminsal_sig_consultarEmpleado')}}">Empleados</a></li> 
+                            <li><a href="{{url('minsal_si_gminsal_sig_consultarUsuario')}}">Usuarios</a></li> 
 		     {% endif %}
 		     {% if app.session.get('id_rol') == 2 %} 
 			    <li><a href="#">Perfil</a></li>

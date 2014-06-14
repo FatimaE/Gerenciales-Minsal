@@ -51,13 +51,21 @@ class __TwigTemplate_c0cfa2a39e9da8784c133be6206ee4f31fca9b7228be7aa9665849ef70f
 \t\t</div>
 \t</div>
 </div>
+<div class=\"container top\">
+\t<a href=\"";
+        // line 15
+        echo $this->env->getExtension('routing')->getPath("minsal_si_gminsal_sig_consultarCargo");
+        echo "\">
+\t\t<button type=\"button\" id=\"Regresar\" name=\"Regresar\" class=\"btn btn-lm btn-default\">Regresar a consultar cargos</button>
+\t</a>
+</div> 
 ";
     }
 
-    // line 15
+    // line 20
     public function block_js($context, array $blocks = array())
     {
-        // line 16
+        // line 21
         echo "\t<script language=\"JavaScript\" src =\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/password_checker.js"), "html", null, true);
         echo "\"> </script>
@@ -76,6 +84,6 @@ class __TwigTemplate_c0cfa2a39e9da8784c133be6206ee4f31fca9b7228be7aa9665849ef70f
 
     public function getDebugInfo()
     {
-        return array (  61 => 16,  58 => 15,  47 => 8,  43 => 7,  38 => 6,  36 => 5,  32 => 3,  29 => 2,);
+        return array (  69 => 21,  66 => 20,  57 => 15,  47 => 8,  43 => 7,  38 => 6,  36 => 5,  32 => 3,  29 => 2,);
     }
 }
