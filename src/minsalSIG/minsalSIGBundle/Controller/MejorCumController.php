@@ -19,7 +19,8 @@ class MejorCumController extends Controller
        
             //Creando lo que llevara los select
             if(count($carrera)>0){            
-                $carr=array();            
+                $carr=array(); 
+                $carr[0]= 'Todas las carreras'; 
                 foreach($carrera as $carreras) 
                 {                 
                     $carr[$carreras->getId()]= $carreras->getNombre();                    
@@ -27,7 +28,8 @@ class MejorCumController extends Controller
             }
             
             if(count($universidad)>0){            
-                $institucion=array();            
+                $institucion=array();  
+                $institucion[0]= 'Todas las universidades'; 
                 foreach($universidad as $univ) 
                 {                 
                     $institucion[$univ->getId()]= $univ->getNombre();                    
@@ -36,8 +38,8 @@ class MejorCumController extends Controller
             
             //Creando el formulario
             $form = $this->createFormBuilder(null)
-                    ->add('selectcarr', 'choice', array('choices' =>$carr, 'empty_value' => 'Elija una Carrera'))
-                    ->add('selectuniv', 'choice', array('choices' =>$institucion, 'empty_value' => 'Elija una Universidad'))
+                    ->add('selectcarr', 'choice', array('choices' =>$carr, 'empty_value' => 'Elija una Carrera', 'required' => true))
+                    ->add('selectuniv', 'choice', array('choices' =>$institucion, 'empty_value' => 'Elija una Universidad', 'required' => true))
                     ->add('enviar', 'submit')->getForm();
             
             
@@ -47,6 +49,39 @@ class MejorCumController extends Controller
                 //recupero los Id de los select
                 $varId = $form->get('selectcarr')->getData();
                 $univId = $form->get('selectuniv')->getData();          
+                
+                //Seleccionar todas las universidades
+                if($varId == 0)
+                {
+                    if($univId == 0){                                  
+                        return $this->render('minsalSIGminsalSIGBundle:Tactico:RepMejorCum.html.twig', array('carrera' => $carrera, 'universidad' => $universidad));     
+
+                   }
+                   else 
+                       //Seleccionar todas carreras, una universidad
+                       if($univId != 0){
+                           $nomUniv=$repository->getRepository('minsalSIGminsalSIGBundle:SsInstitucionFormadora')->find($univId);                           
+                           return $this->render('minsalSIGminsalSIGBundle:Tactico:RepMejorCum2.html.twig', array('carrera' => $carrera, 'nomUniv' => $nomUniv));
+                       }
+                }
+                //Selecciona una carrera
+                else
+                    if($varId != 0){
+                        //Selecciona una carrera todas las universidades
+                        if($univId == 0){
+                            $nomCarr=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->find($varId);
+                            return $this->render('minsalSIGminsalSIGBundle:Tactico:RepMejorCum3.html.twig', array('nomCarr' => $nomCarr, 'universidad' => $universidad));
+                        }
+                        else
+                            if($univId != 0){
+                                $nomCarr=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->find($varId);
+                                $nomUniv=$repository->getRepository('minsalSIGminsalSIGBundle:SsInstitucionFormadora')->find($univId);
+                                return $this->render('minsalSIGminsalSIGBundle:Tactico:RepMejorCum4.html.twig', array('nomCarr' => $nomCarr, 'nomUniv' => $nomUniv));
+                            }
+                }
+                 
+                                       
+                        
                 
            /*    //Recuperar el id de ss_carrera_inst 
                $varCarrInst = $repository->getRepository('minsalSIGminsalSIGBundle:SsCarreraInstForm')->findBy(array('idCarrera' => $varId, 'idInstitucionFormadora' => $univId));
@@ -62,10 +97,10 @@ class MejorCumController extends Controller
                 */
             }
                             
-            return $this->render('minsalSIGminsalSIGBundle:Tactico:cum.html.twig', array('form' => $form->createView(), 'carrera' => $carrera, 'universidad' => $universidad,));
+            return $this->render('minsalSIGminsalSIGBundle:Tactico:cum.html.twig', array('form' => $form->createView(), 'carrera' => $carrera, 'universidad' => $universidad));
 		
     }
-    
+    /*
      public function todosAction(Request $request)
     {
         $repository=$this->getDoctrine();
@@ -74,5 +109,5 @@ class MejorCumController extends Controller
                   
          return $this->render('minsalSIGminsalSIGBundle:Tactico:RepMejorCum.html.twig', array('carrera' => $carrera, 'universidad' => $universidad));      
          
-    }
+    }*/
 }
