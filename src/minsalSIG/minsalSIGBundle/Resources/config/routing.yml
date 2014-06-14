@@ -28,6 +28,18 @@ minsal_si_gminsal_sig_modificarCargo:
 minsal_si_gminsal_sig_eliminarCargo:
     pattern:  /eliminarCargo/{idCargo}
     defaults: { _controller: minsalSIGminsalSIGBundle:Cargo:Eliminar }
+minsal_si_gminsal_sig_consultarEmpleado:
+    pattern:  /consultarEmpleado
+    defaults: { _controller: minsalSIGminsalSIGBundle:Empleado:Consultar }
+minsal_si_gminsal_sig_InsertarEmpleado:
+    pattern:  /InsertarEmpleado
+    defaults: { _controller: minsalSIGminsalSIGBundle:Empleado:Insertar }
+minsal_si_gminsal_sig_ModificarEmpleado:
+    pattern:  /ModificarUsuario/{idEmpleado}
+    defaults: { _controller: minsalSIGminsalSIGBundle:Empleado:Modificar }
+minsal_si_gminsal_sig_EliminarEmpleado:
+    pattern:  /EliminarEmpleado/{idEmpleado}
+    defaults: { _controller: minsalSIGminsalSIGBundle:Empleado:Eliminar }
 minsal_si_gminsal_sig_cum:
     pattern:  /cum
     defaults: { _controller: minsalSIGminsalSIGBundle:MejorCum:MejorCum }
