@@ -71,7 +71,7 @@ class MejorCumController extends Controller
         $repository=$this->getDoctrine();
         $carrera=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->findAll();           
         $universidad=$repository->getRepository('minsalSIGminsalSIGBundle:SsInstitucionFormadora')->findAll();
-            
+                  
          return $this->render('minsalSIGminsalSIGBundle:Tactico:RepMejorCum.html.twig', array('carrera' => $carrera, 'universidad' => $universidad));      
          
     }

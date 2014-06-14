@@ -1,25 +1,23 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
-    
-        <div class="panel panel-info">  
-           
+{% block body -%}    
+        <div class="panel panel-info">             
             <div class="panel-body text-center" >    
                 <img src="{{asset('images/Encabezado_reportes.png')}}">
-                <p>Reporte de mejor CUM por carrera y universidad</p>
+                <p>Cuadro estadístico de los resultados de la prueba de conocimiento por carrera</p>
                 <br />
                 <br />
                 <table class="table table-striped table-hover table-condensed" border="1">
                     <thead class="table-param">
                     <tr align="center">
-                      <th class="table-header" rowspan="2" align="center" >Universidad</th>
-                      <th class="table-header" colspan="15" align="center">Carrera</th>                      
-                    </tr>
-                    <tr>
-                        {%for cars in carrera%}
-                          <th>{{cars.nombre}}</th>    
-                        {% endfor%}                      
-                    </tr>
+                      <th class="table-header" align="center" >Universidad</th>
+                      <th class="table-header" align="center">N° de Estudiantes reportados por universidades</th>
+                      <th class="table-header" align="center" >Estudiantes examinados</th>
+                      <th class="table-header" align="center">Aprobados</th>
+                      <th class="table-header" align="center" >Reprobados</th>
+                      <th class="table-header" align="center">Nota Mínima</th>
+                      <th class="table-header" align="center">Nota Maxima</th>
+                    </tr>                    
                     </thead>
                     <tbody class="table-param">
                         {%for univs in universidad%}
@@ -33,27 +31,12 @@
                                 <th>1</th>
                                 <th>1</th>
                                 <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>    
-                                <th>1</th>    
+                                <th>1</th>                                  
                             </tr>                           
                         {% endfor%}
-                    </tbody>
-                    
-                          
-                   
-                               
-              
+                    </tbody>           
                 </table> 
-                    <a href="{{url('minsal_si_gminsal_sig_cum')}}"> Regresar </a>          
+                    <a href="{{url('minsal_si_gminsal_sig_pruebaCon')}}"> Regresar </a>          
                 <br />
                 <br />            
             </div>

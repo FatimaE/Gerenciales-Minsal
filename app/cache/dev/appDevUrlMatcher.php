@@ -385,6 +385,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\MejorCumController::todosAction',  '_route' => 'minsal_si_gminsal_sig_conTodos1',);
         }
 
+        // minsal_si_gminsal_sig_rep2_tact_todo
+        if ($pathinfo === '/rep2') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\PruebaConController::todosAction',  '_route' => 'minsal_si_gminsal_sig_rep2_tact_todo',);
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
