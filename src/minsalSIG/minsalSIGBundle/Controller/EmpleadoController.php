@@ -127,7 +127,7 @@ class EmpleadoController extends Controller
     {   
                 $repository=$this->getDoctrine();
                 $flash = $this->get('braincrafted_bootstrap.flash');
-                $all_usuarios=$repository->getRepository('minsalSIGminsalSIGBundle:FosUserUser')->find($idEmpleado);
+                $all_usuarios=$repository->getRepository('minsalSIGminsalSIGBundle:FosUserUser')->findOneBy(array('idEmpleado'=>$idEmpleado));
                 if(count($all_usuarios)>0)
                 {
                     $flash->error('Hay usuarios que dependen de este empleado y no puede ser eliminado .');

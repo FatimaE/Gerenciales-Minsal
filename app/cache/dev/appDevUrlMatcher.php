@@ -302,6 +302,26 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'minsal_si_gminsal_sig_eliminarCargo')), array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\CargoController::EliminarAction',));
         }
 
+        // minsal_si_gminsal_sig_consultarEmpleado
+        if ($pathinfo === '/consultarEmpleado') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\EmpleadoController::ConsultarAction',  '_route' => 'minsal_si_gminsal_sig_consultarEmpleado',);
+        }
+
+        // minsal_si_gminsal_sig_InsertarEmpleado
+        if ($pathinfo === '/InsertarEmpleado') {
+            return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\EmpleadoController::InsertarAction',  '_route' => 'minsal_si_gminsal_sig_InsertarEmpleado',);
+        }
+
+        // minsal_si_gminsal_sig_ModificarEmpleado
+        if (0 === strpos($pathinfo, '/ModificarUsuario') && preg_match('#^/ModificarUsuario/(?P<idEmpleado>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'minsal_si_gminsal_sig_ModificarEmpleado')), array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\EmpleadoController::ModificarAction',));
+        }
+
+        // minsal_si_gminsal_sig_EliminarEmpleado
+        if (0 === strpos($pathinfo, '/EliminarEmpleado') && preg_match('#^/EliminarEmpleado/(?P<idEmpleado>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'minsal_si_gminsal_sig_EliminarEmpleado')), array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\EmpleadoController::EliminarAction',));
+        }
+
         // minsal_si_gminsal_sig_cum
         if ($pathinfo === '/cum') {
             return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\MejorCumController::MejorCumAction',  '_route' => 'minsal_si_gminsal_sig_cum',);

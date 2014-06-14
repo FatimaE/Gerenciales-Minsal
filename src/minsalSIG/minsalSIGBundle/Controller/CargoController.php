@@ -80,7 +80,7 @@ class CargoController extends Controller
     {   
                 $repository=$this->getDoctrine();
                 $flash = $this->get('braincrafted_bootstrap.flash');
-                $all_empleados=$repository->getRepository('minsalSIGminsalSIGBundle:Empleado')->find($idCargo);
+                $all_empleados=$repository->getRepository('minsalSIGminsalSIGBundle:Empleado')->findOneBy(array('idCargo'=>$idCargo));
                 if(count($all_empleados)>0)
                     $flash->error('Hay empleados que dependen de este cargo y no puede ser eliminado .');
                 else{

@@ -32,7 +32,7 @@ class __TwigTemplate_2561614f237dead4672a560fd88761852b2e3ca24989ae467b8c3565bdf
 </div>
 <div class=\"container top\">
 \t<div class=\"jumbotron\">
-\t\t<h3 class=\"text-center text-primary\"> Usuarios </h3>
+\t\t<h3 class=\"text-center text-primary\"> Empleados </h3>
 \t\t<br />
             \t";
         // line 9
