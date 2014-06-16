@@ -1,42 +1,87 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+    {{form_start(form)}}
+    <div class="container">    {# Revisar--------------------------------#}
+        <div class="panel panel-info">  
+            <div class="panel-heading">Consolidado del rango de notas de la prueba de conocimiento por universidad y carrera</div>
+            <div class="panel-body text-center" >            	 
+                <div class="divParam">
+                    <p>Parámetros necesarios para generar el reporte</p>
+                    <table class="tablaCent">
+                        <tr class="text-center" height="25%">
+                            <td width="25%">
+                                <select>
+                                <option selected>Seleccione un período</option>
+                                <option value="1">Período 1</option>
+                                <option value="2">Período 2</option>
+                                </select>
+                            </td>
+                            <td width="25%">
+                                {{form_widget(form.selectcarr)}}
+                            </td>                        	 
+                            <td width="25%">    
+                                {{form_widget(form.selectuniv)}}                                    	 
+                            </td>                      	                            	 
+                            <td width="28%">
+                                {{form_widget(form.Generar)}}                              	 
+                            </td>
+                        </tr>                   	
+                    </table>            
+                </div>
+            <br />
+            <br />       	 
+            </div>
+        </div>
+    </div>
+                    {# tabla de reportes ..........................#}
     <div class="container">
         <div class="panel panel-info">  
             <div class="panel-heading">Consolidado del rango de notas de la prueba de conocimiento por universidad y carrera</div>
-            <div class="panel-body text-center" >                 
-                    <div class="divParam">
-                        <p>Parámetros necesarios para generar el reporte</p>
-                        <table class="tablaCent">
-                            <tr class="text-center">
-                                <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione un período</option>
-                                        <option value="1">Período 1</option>
-                                        <option value="2">Período 2</option>
-                                    </select>
-                                </td>
-                                 <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione una universidad</option>                                        
-                                    </select>
-                                </td>
-                                <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione una carrera</option>                                        
-                                    </select>
-                                </td>
-                                <td width="28%">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default">Generar Reporte</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>                      
-                    </div>                                
-            </div>
-            <br />
-            <br />
+            <table class="centerTable">
+
+                <tr>
+                    <td><p>Carrera</p>
+                        <p>{{ carreraId }}<p>
+                    </td>  
+                    <td><p>Universidad</p>
+                        <p>{{ univId }}</p>
+                    </td>
+                    <td><p>Excelente</p>
+                        <p>{{ EX }}<p>
+                    </td>  
+                    <td><p>Muy Bueno</p>
+                        <p>{{ MB }}</p>
+                    </td>
+                    <td><p>Bueno</p>
+                        <p>{{ B }}<p>
+                    </td>  
+                    <td><p>Deficiente</p>
+                        <p>{{ D }}</p>
+                    </td>
+                </tr>
+            </table>
         </div>
-    </div>     
-{% endblock %}  
+    </div>
+
+
+                    <div class="container">
+    <div class="panel panel-info">  
+            <div class="panel-heading"><a href="{{url('minsal_si_gminsal_sig_rangoNotas')}}"> Restablecer </a> </div>
+            <div class="panel-body text-center" >            	      	 
+            </div>
+
+    </div>
+    </div>	 
+   {{form_end(form)}}
+                      
+                                        
+                                        
+	
+{% endblock %}
+
+
+
+
+
+

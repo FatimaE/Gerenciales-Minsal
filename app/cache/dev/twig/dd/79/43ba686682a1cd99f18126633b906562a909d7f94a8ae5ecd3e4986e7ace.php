@@ -141,7 +141,7 @@ class __TwigTemplate_dd7943ba686682a1cd99f18126633b906562a909d7f94a8ae5ecd3e4986
         \t<div class=\"panel-heading\"><a href=\"";
         // line 89
         echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_promPrueba");
-        echo "\"> Limpiar</a> </div>
+        echo "\"> Restablecer</a> </div>
         \t<div class=\"panel-body text-center\" >            \t      \t 
         \t</div>
              \t 

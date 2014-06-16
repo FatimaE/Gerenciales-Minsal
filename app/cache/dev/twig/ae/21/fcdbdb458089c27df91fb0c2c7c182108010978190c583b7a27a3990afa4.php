@@ -139,8 +139,8 @@ class __TwigTemplate_ae21fcdbdb458089c27df91fb0c2c7c182108010978190c583b7a27a399
     \t<div class=\"panel panel-info\">  
         \t<div class=\"panel-heading\"><a href=\"";
         // line 88
-        echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_promPrueba");
-        echo "\"> Regresar </a> </div>
+        echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_estudiantes");
+        echo "\"> Restablecer </a> </div>
         \t<div class=\"panel-body text-center\" >            \t      \t 
         \t</div>
              \t 
