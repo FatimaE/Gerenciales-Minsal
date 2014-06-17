@@ -1,42 +1,100 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <div class="container">
-        <div class="panel panel-info">  
-            <div class="panel-heading">Cuadro comparativo del total de estudiantes aceptados para el servicio social por carrera</div>
-            <div class="panel-body text-center" >                 
-                    <div class="divParam">
-                        <p>Parámetros necesarios para generar el reporte</p>
-                        <table class="tablaCent">
-                            <tr class="text-center">
-                                <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione un período</option>
-                                        <option value="1">Período 1</option>
-                                        <option value="2">Período 2</option>
-                                    </select>
-                                </td>
-                                 <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione una universidad</option>                                        
-                                    </select>
-                                </td>
-                                <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione una carrera</option>                                        
-                                    </select>
-                                </td>
-                                <td width="28%">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default">Generar Reporte</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>                      
-                    </div>                                
-            </div>
-            <br />
-            <br />
-        </div>
-    </div>     
-{% endblock %}  
+	{{form_start(form)}}
+	<div class="container">    {# Revisar--------------------------------#}
+    	<div class="panel panel-info">  
+        	<div class="panel-heading">Cuadro comparativo del total de estudiantes aceptados para el servicio social por carrera</div>
+        	<div class="panel-body text-center" >            	 
+                	<div class="divParam">
+                    	<p>Parámetros necesarios para generar el reporte</p>
+                    	<table class="tablaCent">
+                        	<tr class="text-center" height="25%">
+                            	<td width="25%">
+                                	<select>
+                                    	<option selected>Seleccione un período</option>
+                                    	<option value="1">Período 1</option>
+                                    	<option value="2">Período 2</option>
+                                	</select>
+                            	</td>
+                            	<td width="25%">
+                                	{{form_widget(form.selectcarr)}}
+                            	</td>
+                        	                       	 
+                             	<td width="25%">    
+                                	{{form_widget(form.selectuniv)}}                                    	 
+                             	</td>                      	 
+                           	 
+                            	<td width="28%">
+                                	{{form_widget(form.Generar)}}                              	 
+                              	 
+                            	</td>
+                        	</tr>                   	
+                        </table>            
+                	</div>
+            	<br />
+            	<br />       	 
+        	</div>
+             	 
+                                        
+    	</div>
+                                        </div>
+                                        {# tabla de reportes ..........................#}
+                        <div class="container">
+                       
+                            <div class="panel panel-info">  
+                            <div class="panel-heading">Cuadro comparativo del total de estudiantes aceptados para el servicio social por carrera</div>
+                                
+                                <table class="centerTable">
+                                    
+                                    <tr >
+                                      
+                                      <td ><p>Carrera</p>
+                                          <p> {{ carreraId }}<p>
+                                      </td>  
+                                      <td><p>Universidad</p>
+                                          <p>{{ univId }}</p>
+                                          </td>
+                                          <td><p>Total de estudiantes por carrera</p>
+                                          <p> 
+                                              
+                                              {% for estudiantes in cantidad_e %}
+
+                                              {{ estudiantes.cantidad }}
+                            
+                                                {% endfor %}
+                                                  
+                                          </p>
+                                          </td>
+                                          {#<td><p>c_i</p>
+                                          <p> 
+                                              
+                                              {{ c_i }}
+                                                
+                                                  
+                                          </p>
+                                          </td>#}
+                                          
+                                    </tr>
+                                     
+                                </table>
+                                   
+                        </div>
+                            </div>
+                        
+                        
+                        <div class="container">
+    	<div class="panel panel-info">  
+        	<div class="panel-heading"><a href="{{url('minsal_si_gminsal_sig_estudiantes')}}"> Restablecer </a> </div>
+        	<div class="panel-body text-center" >            	      	 
+        	</div>
+             	 
+    	</div>
+	</div>	 
+                                        
+       {{form_end(form)}}
+                      
+                                        
+                                        
+	
+{% endblock %}
