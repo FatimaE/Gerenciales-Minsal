@@ -60,17 +60,18 @@ class UsuarioController extends Controller
 				'choices' =>$roles,
 				'empty_value' => 'Elija un Rol',
 				'attr' => array('class' => 'form-control')))
-			->add('username', 'text', array('label' => 'Nombre del Usuario', 'max_length' => 16))
+                        ->add('username', 'text', array('max_length' => 16, 'attr' => array('class' => 'form-control', 'placeholder' => 'Username', 'title'=>'Este campo no puede estar vacio.')))
 			->add('password', 'repeated', array(
 				'type' => 'password',
 				'invalid_message' => 'Las claves deben coincidir.',
-				'options' => array('attr' => array('class' => 'password-field')),
+				'options' => array('attr' => array('class' => 'password-field', 'placeholder' => 'Password')),
 				'required' => true,
-				'first_options'  => array('label' => 'Clave de Usuario'),
+				'first_options'  => array('label' => 'Digite la clave '),
 				'second_options' => array('label' => 'Repita la Clave'),
+                            
 			))
-			->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-sm btn-success')))
-			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn btn-sm btn-danger')))
+			->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
                         ->getForm();
 		
 		$form->handleRequest($request);
@@ -121,10 +122,10 @@ class UsuarioController extends Controller
 		$form = $this->createFormBuilder($user)
                         
                         ->add('idRol', 'entity', array( 'label' => 'Rol del Usuario', 'class' => 'minsalSIGminsalSIGBundle:Rol', 'property' => 'nombreRol'))
-			->add('username', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Username', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras, numeros, espacios, guiones', "pattern" => "([a-zA-Z0-9]|-|_)+")))
-			->add('Guardar', 'submit', array('label' => 'Guardar Modificaciones', 'attr' => array('class' => 'btn btn-sm btn-success')))
-			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn btn-sm btn-danger')))
-			->getForm();
+			->add('username', 'text', array('max_length' => 16, 'attr' => array('class' => 'form-control', 'placeholder' => 'Username', 'title'=>'Este campo no puede estar vacio.')))
+			->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
+                        ->getForm();
 		$form->handleRequest($request);
                 
 		if ($form->isValid()) {

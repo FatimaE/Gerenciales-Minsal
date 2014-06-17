@@ -1,4 +1,6 @@
-/*PAGINA WEB*/
+/*CSS SIGAV - UES 2014*/
+
+/*Pagina WEB*/
 body {
 	padding-left: 5px;
 	padding-right: 5px;
@@ -7,40 +9,59 @@ body {
 .footer{
 	padding-bottom: 5px;
 }
-
 .top {
 	padding-top: 25px;
 }
-
 .table-header{
 	font-weight:bolder;
 }
-
-.divParam{
-    width:600px;
-    margin: auto;
-    padding: 15px;
-    background-color:#f5f5f5;
-    text-align: center;
+input:required:invalid {
+	border: 1px solid red;
 }
-
-.radiocss{
-    text-align: left;
-    
+input:required:valid {
+	border: 1px solid green;
 }
-/*TABLAS*/
-.table-param {
-    text-align: center; 
-    font-size: xx-small;
-    font-style: normal;
+/*Password Check*/
+#pass-info{
+	width: 50%;
+	height: 25px;
+	border: 1px solid #DDD;
+	border-radius: 4px;
+	color: #829CBD;
+	text-align: center;
+	font: 12px/25px Arial, Helvetica, sans-serif;
 }
-
-tr{
-    width: 25%;
-    height: 30%; 
-    text-align: center;
+#pass-info.weakpass{
+	border: 1px solid #FF9191;
+	background: #FFC7C7;
+	color: #94546E;
+	text-shadow: 1px 1px 1px #FFF;
 }
-
+#pass-info.stillweakpass {
+	border: 1px solid #FBB;
+	background: #FDD;
+	color: #945870;
+	text-shadow: 1px 1px 1px #FFF;
+}
+#pass-info.goodpass {
+	border: 1px solid #C4EEC8;
+	background: #E4FFE4;
+	color: #51926E;
+	text-shadow: 1px 1px 1px #FFF;
+}
+#pass-info.strongpass {
+	border: 1px solid #6ED66E;
+	background: #79F079;
+	color: #348F34;
+	text-shadow: 1px 1px 1px #FFF;
+}
+#pass-info.vrystrongpass {
+	border: 1px solid #379137;
+	background: #48B448;
+	color: #CDFFCD;
+	text-shadow: 1px 1px 1px #296429;
+}
+/*Tablas*/
 .table-borderless td, .table-borderless th {
 	border: 0; }
 .centerTable{
@@ -53,15 +74,11 @@ tr{
 .centerDiv { 
 text-align: center; }
 
-/*FORMULARIO DE LOGIN*/
+/*Login Form*/
 .body-login {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color:#FFFFFF;
-  /*  background-color: #eee;*/
-/*  background-color:#66afe9*/
-/*  background-color: #428bca;*/
-/*  background-color: #B0C4DE;*/
+  background-color: #eee;
 }
 .form-login {
   max-width: 400px;
@@ -70,10 +87,10 @@ text-align: center; }
 }
 .form-login .form-login-heading,
 .form-login .checkbox {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 .form-login .checkbox {
-  font-weight: normal;  
+  font-weight: normal;
 }
 .form-login .form-control {
   position: relative;
@@ -83,30 +100,7 @@ text-align: center; }
           box-sizing: border-box;
   padding: 10px;
   font-size: 14px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;  
 }
 .form-login .form-control:focus {
-  z-index: 2;  
-}
-.form-login input[type="email"] {   
-  margin-bottom: -1px;
-  border-radius: 15px 15px 15px 15px;
-    
-}
-.form-login input[type="password"] {
-  margin-bottom: 10px;
- border-radius: 15px 15px 15px 15px;
-}
-
-/*Fondo login*/
-.panel-fondo {
-  background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
-  background-image:         linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
-  background-repeat: repeat-x;
-  width: 700px;  
-  margin: auto;
+  z-index: 2;
 }
