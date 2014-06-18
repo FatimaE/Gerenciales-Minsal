@@ -313,7 +313,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // minsal_si_gminsal_sig_ModificarEmpleado
-        if (0 === strpos($pathinfo, '/ModificarUsuario') && preg_match('#^/ModificarUsuario/(?P<idEmpleado>[^/]++)$#s', $pathinfo, $matches)) {
+        if (0 === strpos($pathinfo, '/ModificarEmpleado') && preg_match('#^/ModificarEmpleado/(?P<idEmpleado>[^/]++)$#s', $pathinfo, $matches)) {
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'minsal_si_gminsal_sig_ModificarEmpleado')), array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\EmpleadoController::ModificarAction',));
         }
 

@@ -51,11 +51,11 @@ class EmpleadoController extends Controller
 				'choices' =>$cargos,
 				'empty_value' => 'Elija un Cargo',
 				'attr' => array('class' => 'form-control')))
-			->add('primerNombre', 'text', array('label' => 'Nombres del empleado', 'max_length' => 30))
-                        ->add('primerApellido', 'text', array('label' => 'Apellidos del empleado', 'max_length' => 30))
-                        ->add('emailInstitucional', 'text', array('label' => 'Email del empleado', 'max_length' => 16))
-			->add('Guardar', 'submit', array('label' => 'Guardar empleado', 'attr' => array('class' => 'btn btn-sm btn-success')))
-			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn btn-sm btn-danger')))
+                        ->add('primerNombre', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Nombre', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))
+			->add('primerApellido', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Apellido', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
+                        ->add('emailInstitucional', 'text', array('max_length' => 50, 'attr' => array('class' => 'form-control', 'placeholder' => 'Email', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}")))			                       
+          		->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
                         ->getForm();
 		
 		$form->handleRequest($request);
@@ -104,12 +104,12 @@ class EmpleadoController extends Controller
 		$form = $this->createFormBuilder($empleado)
                         
                         ->add('idCargo', 'entity', array( 'label' => 'Cargo del empleado', 'class' => 'minsalSIGminsalSIGBundle:Cargo', 'property' => 'nombreCargo'))
-			->add('primerNombre', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Nombres del empleado', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras, numeros, espacios, guiones', "pattern" => "([a-zA-Z0-9]|-|_)+")))
-                        ->add('primerApellido', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Apellidos del empleado', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras, numeros, espacios, guiones', "pattern" => "([a-zA-Z0-9]|-|_)+")))
-			->add('emailInstitucional', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Email del empleado', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras, numeros, espacios, guiones', "pattern" => "([a-zA-Z0-9]|-|_)+")))
-                        ->add('Guardar', 'submit', array('label' => 'Guardar Modificaciones', 'attr' => array('class' => 'btn btn-sm btn-success')))
-			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn btn-sm btn-danger')))
-			->getForm();
+			->add('primerNombre', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Nombre', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))
+			->add('primerApellido', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Apellido', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
+                        ->add('emailInstitucional', 'text', array('max_length' => 50, 'attr' => array('class' => 'form-control', 'placeholder' => 'Email', 'title'=>'Este campo no puede estar vacio. Ingrese un email valido Ejemplo: alguien@gmail.com', "pattern" => "[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}")))			                       
+          		->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
+                        ->getForm();
 		$form->handleRequest($request);
                 
 		if ($form->isValid()) {

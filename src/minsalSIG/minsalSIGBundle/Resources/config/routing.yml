@@ -35,7 +35,7 @@ minsal_si_gminsal_sig_InsertarEmpleado:
     pattern:  /InsertarEmpleado
     defaults: { _controller: minsalSIGminsalSIGBundle:Empleado:Insertar }
 minsal_si_gminsal_sig_ModificarEmpleado:
-    pattern:  /ModificarUsuario/{idEmpleado}
+    pattern:  /ModificarEmpleado/{idEmpleado}
     defaults: { _controller: minsalSIGminsalSIGBundle:Empleado:Modificar }
 minsal_si_gminsal_sig_EliminarEmpleado:
     pattern:  /EliminarEmpleado/{idEmpleado}

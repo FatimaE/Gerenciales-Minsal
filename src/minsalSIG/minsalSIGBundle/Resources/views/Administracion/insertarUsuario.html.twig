@@ -3,12 +3,49 @@
 <div class="container top">
 	<div class="jumbotron">
 		{% include 'BraincraftedBootstrapBundle::flash.html.twig' with { 'close': true } %}
-		{{ form(form, { 'style': 'horizontal', 'label_col': 3, 'widget_col': 3  }) }}
+		{{ form_start(form, {'attr': {'class': 'form-horizontal'}} ) }}
 		{{ form_errors(form, { 'global_errors': true }) }}
-		{{ form_end(form) }}
-		<br />
-		<div id="pass-info">
+                
+                 <div class="form-group">
+			<label for="empleado" class="col-lg-3 control-label">Empleado</label>
+			<div class="col-lg-4">
+				{{ form_widget(form.empleado) }}
+			</div>
+		</div> 
+               
+                <div class="form-group">
+			<label for="rol" class="col-lg-3 control-label">Rol del Usuario</label>
+			<div class="col-lg-4">
+				{{ form_widget(form.rol) }}
+			</div>
+		</div>        
+                
+		<div class="form-group">
+			<label for="username" class="col-lg-3 control-label">Nombre de Usuario</label>
+			<div class="col-lg-4">
+				{{ form_widget(form.username) }}
+			</div>
 		</div>
+                <div class="form-group">
+			<label for="password" class="col-lg-3 control-label">Claves:         </label>
+			<div class="col-lg-4">
+				{{ form_widget(form.password) }}
+			</div>
+                </div>
+                    <div id="pass-info">
+		</div>
+		<br />
+		<div class="col-lg-offset-1 col-lg-2">
+			{{ form_widget(form.Guardar) }}
+		</div>
+                
+		<div class="col-lg-2">
+			{{ form_widget(form.Limpiar) }}
+		</div>
+		
+		{{ form_rest(form) }}
+		{{ form_end(form) }}
+                
 	</div>
 </div>
 <div class="container top">
@@ -17,6 +54,6 @@
 	</a>
 </div>
 {% endblock %}
-{% block js %}
-	<script language="JavaScript" src ="{{asset('js/password_checker.js')}}"> </script>
-{% endblock %}
+
+
+

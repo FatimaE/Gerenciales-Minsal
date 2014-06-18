@@ -40,15 +40,16 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
         ";
         // line 17
         $this->displayBlock('body', $context, $blocks);
-        // line 40
+        // line 41
         echo "\t\t
         ";
-        // line 41
+        // line 42
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 45
+        // line 46
         echo "    </body>
 \t
-</html>";
+</html>
+";
     }
 
     // line 6
@@ -110,17 +111,18 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
         // line 29
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "password"), 'widget');
         echo "
+\t\t\t</br>
 
                         ";
-        // line 31
+        // line 32
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "ingresar"), 'widget');
         echo "
                         ";
-        // line 32
+        // line 33
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
                         ";
-        // line 33
+        // line 34
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
@@ -131,15 +133,15 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
         ";
     }
 
-    // line 41
+    // line 42
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 42
+        // line 43
         echo "                <script language=\"JavaScript\" src =\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/jquery-2.1.0.min.js"), "html", null, true);
         echo "\"> </script>
                 <script language=\"JavaScript\" src =\"";
-        // line 43
+        // line 44
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"> </script>
         ";
@@ -152,6 +154,6 @@ class __TwigTemplate_03285cfe037b2c0c12fefa74746d8c631034582376d73882d2de635fe9e
 
     public function getDebugInfo()
     {
-        return array (  143 => 43,  138 => 42,  135 => 41,  124 => 33,  120 => 32,  116 => 31,  111 => 29,  107 => 28,  101 => 25,  96 => 23,  92 => 22,  83 => 17,  77 => 11,  73 => 10,  69 => 9,  64 => 8,  61 => 7,  55 => 6,  49 => 45,  47 => 41,  44 => 40,  42 => 17,  36 => 13,  34 => 7,  30 => 6,  23 => 1,);
+        return array (  145 => 44,  140 => 43,  137 => 42,  126 => 34,  122 => 33,  118 => 32,  112 => 29,  108 => 28,  102 => 25,  97 => 23,  93 => 22,  84 => 17,  78 => 11,  74 => 10,  70 => 9,  65 => 8,  62 => 7,  56 => 6,  49 => 46,  47 => 42,  44 => 41,  42 => 17,  36 => 13,  34 => 7,  30 => 6,  23 => 1,);
     }
 }

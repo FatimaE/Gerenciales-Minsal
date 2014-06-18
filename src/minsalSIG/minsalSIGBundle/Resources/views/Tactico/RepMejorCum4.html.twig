@@ -19,15 +19,13 @@
                     </thead>
                     <tbody class="table-param">                      
                             <tr>
-                                <th>{{nomUniv.nombre}}</th>                                   
-                                <th>1</th>    
-                            </tr>                           
+                                <th>{{nomUniv.nombre}}</th>                          
+                               {%for res in resultado%}
+                                <th>{{res.cuenta}}</th>    
+                                {%endfor%}
+                            </tr>                  
                     
-                    </tbody>
-                    
-                          
-                   
-                               
+                    </tbody>                      
               
                 </table> 
                     <a href="{{url('minsal_si_gminsal_sig_cum')}}"> Regresar </a>          

@@ -56,19 +56,29 @@ class __TwigTemplate_b9536401ee6b7c23e87de5fc85116a57589394daa76182c0088a9450cb5
                                 <th>";
         // line 22
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["nomUniv"]) ? $context["nomUniv"] : $this->getContext($context, "nomUniv")), "nombre"), "html", null, true);
-        echo "</th>                                   
-                                <th>1</th>    
-                            </tr>                           
+        echo "</th>                          
+                               ";
+        // line 23
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["resultado"]) ? $context["resultado"] : $this->getContext($context, "resultado")));
+        foreach ($context['_seq'] as $context["_key"] => $context["res"]) {
+            // line 24
+            echo "                                <th>";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "cuenta"), "html", null, true);
+            echo "</th>    
+                                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['res'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 26
+        echo "                            </tr>                  
                     
-                    </tbody>
-                    
-                          
-                   
-                               
+                    </tbody>                      
               
                 </table> 
                     <a href=\"";
-        // line 33
+        // line 31
         echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cum");
         echo "\"> Regresar </a>          
                 <br />
@@ -92,6 +102,6 @@ class __TwigTemplate_b9536401ee6b7c23e87de5fc85116a57589394daa76182c0088a9450cb5
 
     public function getDebugInfo()
     {
-        return array (  72 => 33,  58 => 22,  50 => 17,  36 => 6,  31 => 3,  28 => 2,);
+        return array (  82 => 31,  75 => 26,  66 => 24,  62 => 23,  58 => 22,  50 => 17,  36 => 6,  31 => 3,  28 => 2,);
     }
 }

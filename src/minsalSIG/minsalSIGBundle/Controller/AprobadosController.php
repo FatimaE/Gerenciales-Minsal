@@ -20,7 +20,7 @@ class AprobadosController extends Controller
        
             //Creando lo que llevara los select
             if(count($carrera)>0){            
-                $carr=array();                 
+                $carr=array();            
                 foreach($carrera as $carreras) 
                 {                 
                     $carr[$carreras->getId()]= $carreras->getNombre();                    
@@ -47,7 +47,6 @@ class AprobadosController extends Controller
                 //recupero los Id de los select
                 $varId = $form->get('selectcarr')->getData();
                 $univId = $form->get('selectuniv')->getData();          
-                
                 
                 //Recuperar el id de ss_carrera_inst 
                $varCarrInst = $repository->getRepository('minsalSIGminsalSIGBundle:SsCarreraInstForm')->findBy(array('idCarrera' => $varId, 'idInstitucionFormadora' => $univId));

@@ -16,26 +16,36 @@
                       <th class="table-header" colspan="15" align="center">Carrera</th>                      
                     </tr>
                     <tr>                      
-                        <th>{{nomCarr.nombre}}</th>    
-                                              
+                        <th>{{nomCarr.nombre}}</th>                                               
                     </tr>                    
                     </thead>
-                    <tbody class="table-param">                      
+                    <tbody class="table-param">    
+                         {% set count = 0%}
                           {%for univs in universidad%}
                             <tr>
-                                <th>{{univs.nombre}}</th>                                
-                                <th>1</th>    
-                            </tr>                           
-                        {% endfor%}
-                                                      
-                    
-                    </tbody>
-                    
-                          
-                   
-                               
-              
+                                <th>{{univs.nombre}}</th>                        
+                                
+                                {%for res in resultado if (res.id_institucion_formadora == univs.id) %}                                       
+                                    {% if (res.cuenta != 0) %} <!-- Si el valor es distinto de 0, se escribe -->
+                                        <th> {{res.cuenta}} </th>
+                                    {%else %}
+                                        <th> </th> 
+                                    {%endif %}  
+                                {% set count = count +1 %}
+                                {% endfor %} 
+                                
+                                
+                            </tr>                            
+                        {% endfor%}    
+                        {%set resta = 18-count%}
+                            {% for i in resta..18 %}
+                                <tr> </tr>
+                            {% endfor%}  
+                                           
+                    </tbody>     
                 </table> 
+                  
+                    
                     <a href="{{url('minsal_si_gminsal_sig_cum')}}"> Regresar </a>          
                 <br />
                 <br />            

@@ -75,45 +75,78 @@ class __TwigTemplate_7dd005ff2aee1f15e49bc5924284bb86e5d18ec389cfe40bbc2df906278
             // line 27
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["univs"]) ? $context["univs"] : $this->getContext($context, "univs")), "nombre"), "html", null, true);
             echo "</th>
-                                <!--Hay que hacer un for (para cada col dentro de fla), para cada registro en carrera_institucion
-                                y comparar si el id_inst_carrera recuperado es igual al de la tabla se imprime el valor obtenido, 
-                                caso contrario se imprime 0-->
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>    
-                                <th>1</th>    
-                            </tr>                           
+                                
+                                ";
+            // line 29
+            $context["count"] = 0;
+            echo " <!--Contador para que se vean las columnas -->
+                                ";
+            // line 30
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["resultado"]) ? $context["resultado"] : $this->getContext($context, "resultado")));
+            foreach ($context['_seq'] as $context["_key"] => $context["res"]) {
+                if (($this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "id_institucion_formadora") == $this->getAttribute((isset($context["univs"]) ? $context["univs"] : $this->getContext($context, "univs")), "id"))) {
+                    echo "                                    
+                                    ";
+                    // line 31
+                    if (($this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "cuenta") != 0)) {
+                        echo " <!-- Si el valor es distinto de 0, se escribe de lo contrario se imprime una columna vacia -->
+                                        <th> ";
+                        // line 32
+                        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "cuenta"), "html", null, true);
+                        echo " </th>
+                                    ";
+                    } else {
+                        // line 34
+                        echo "                                        <th> </th> 
+                                    ";
+                    }
+                    // line 36
+                    echo "                                    ";
+                    $context["count"] = ((isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")) + 1);
+                    // line 37
+                    echo "                                ";
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['res'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            echo "                           
+                                
+                                ";
+            // line 39
+            $context["resta"] = (16 - (isset($context["count"]) ? $context["count"] : $this->getContext($context, "count")));
+            // line 40
+            echo "                                ";
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["resta"]) ? $context["resta"] : $this->getContext($context, "resta"))));
+            foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
+                // line 41
+                echo "                                    <th> </th>
+                                ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 43
+            echo "                            </tr>                           
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['univs'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 49
-        echo "                    </tbody>
-                    
-                          
-                   
-                               
+        // line 45
+        echo "                    </tbody>                          
               
-                </table> 
+                </table>                    
+                        
                     <a href=\"";
-        // line 56
+        // line 49
         echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cum");
         echo "\"> Regresar </a>          
                 <br />
-                <br />            
+                <br />  
+                
             </div>
                   
         </div>
@@ -133,6 +166,6 @@ class __TwigTemplate_7dd005ff2aee1f15e49bc5924284bb86e5d18ec389cfe40bbc2df906278
 
     public function getDebugInfo()
     {
-        return array (  113 => 56,  104 => 49,  76 => 27,  73 => 26,  69 => 25,  63 => 21,  54 => 20,  50 => 19,  36 => 8,  31 => 5,  28 => 3,);
+        return array (  145 => 49,  139 => 45,  132 => 43,  125 => 41,  120 => 40,  118 => 39,  108 => 37,  105 => 36,  101 => 34,  96 => 32,  92 => 31,  85 => 30,  81 => 29,  76 => 27,  73 => 26,  69 => 25,  63 => 21,  54 => 20,  50 => 19,  36 => 8,  31 => 5,  28 => 3,);
     }
 }

@@ -31,16 +31,22 @@ class CargoController extends Controller
 		$flash = $this->get('braincrafted_bootstrap.flash');
 		$session = $this->getRequest()->getSession();
 		$cargo = new Cargo();
-		$form = $this->createForm(new IngresarCargo(), $cargo);
-		$form->handleRequest($request);
+		$form = $this->createFormBuilder($cargo)
+                        ->add('nombreCargo', 'text', array('max_length' => 25, 'attr' => array('class' => 'form-control', 'placeholder' => 'Cargo', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
+			->add('descripcion', 'text', array('label' => 'Descripcion del cargo', 'max_length' => 75, 'attr' => array ('class' => 'form-control', 'placeholder' => 'Descripcion' )))
+			->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
+                        ->getForm();
+                
+                $form->handleRequest($request);
 		if ($form->isValid()) {
-			if ($form->get('agregar')->isClicked()) {
+			
 				$em=$this->getDoctrine()->getManager();
 				$em->persist($cargo);
-				$em->flush();
+				$em->flush();			
 				$flash->success('Cargo insertado exitosamente.');
 				return $this->redirect($this->generateUrl('minsal_si_gminsal_sig_insertarCargo'));
-			}
+			
 			
 		}
 		return $this->render('minsalSIGminsalSIGBundle:Administracion:insertarCargo.html.twig',
@@ -56,11 +62,11 @@ class CargoController extends Controller
 		$session = $this->getRequest()->getSession();
 		
 		$form = $this->createFormBuilder($cargo)
-                        ->add('nombreCargo', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Nombre', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras, numeros, espacios, guiones', "pattern" => "([a-zA-Z0-9]|-|_)+")))
-                        ->add('descripcion', 'text', array('attr' => array('class' => 'form-control', 'placeholder' => 'Descripcion')))
-			->add('Guardar', 'submit', array('label' => 'Guardar Modificaciones', 'attr' => array('class' => 'btn btn-sm btn-success')))
-			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn btn-sm btn-danger')))
-			->getForm();
+                        ->add('nombreCargo', 'text', array('max_length' => 25, 'attr' => array('class' => 'form-control', 'placeholder' => 'Cargo', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
+			->add('descripcion', 'text', array('label' => 'Descripcion del cargo', 'max_length' => 75, 'attr' => array ('class' => 'form-control', 'placeholder' => 'Descripcion' )))
+			->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
+                        ->getForm();
 		$form->handleRequest($request);
 		if ($form->isValid()) {
                         $em=$this->getDoctrine()->getManager();
