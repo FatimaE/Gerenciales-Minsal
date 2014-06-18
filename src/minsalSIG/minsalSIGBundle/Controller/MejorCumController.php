@@ -14,7 +14,7 @@ class MejorCumController extends Controller
     {
              //para obtener los datos de la carrera como de la institución 
             $repository=$this->getDoctrine();
-            $carrera=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->findAll();           
+            $carrera=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->findBY(array(), array('id' => 'ASC'));           
             $universidad=$repository->getRepository('minsalSIGminsalSIGBundle:SsInstitucionFormadora')->findAll();
        
             //Creando lo que llevara los select

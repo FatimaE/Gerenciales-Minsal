@@ -8,23 +8,16 @@
             <div class="panel-body text-center" >
                 <div class="divParam">
                     <p>Parámetros necesarios para generar el reporte</p>                    
-                    <table class="table-param">                                            
-                        <tr>                            
-                            <select>
-                                <option selected>Seleccione un período</option>
-                                <option value="1">Período 1</option>
-                                <option value="2">Período 2</option>
-                            </select>
-                        </tr>
+                    <table class="table-param">                              
                         
                         <tr>                             
                             {{form_widget(form.selectcarr)}}
                         </tr>
-                        
+                        <br />  
                         <tr>
                              {{form_widget(form.selectuniv)}}                              
                         </tr>
-                        
+                        <br />  
                         <tr>
                             {{form_widget(form.enviar)}}
                         </tr>

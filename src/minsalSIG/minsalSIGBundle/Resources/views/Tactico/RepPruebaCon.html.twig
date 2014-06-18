@@ -4,7 +4,8 @@
         <div class="panel panel-info">             
             <div class="panel-body text-center" >    
                 <img src="{{asset('images/Encabezado_reportes.png')}}">
-                <p>Cuadro estadístico de los resultados de la prueba de conocimiento por carrera</p>
+               
+                <p>Cuadro estadístico de los resultados de la prueba de conocimiento de la carrera de{%for car in carreraNombre%} {{car.nombre}} {%endfor%}</p>
                 <br />
                 <br />
                 <table class="table table-striped table-hover table-condensed" border="1">
@@ -23,15 +24,15 @@
                         {%for univs in universidad%}
                             <tr>
                                 <th>{{univs.nombre}}</th>
-                                <!--Hay que hacer un for (para cada col dentro de fla), para cada registro en carrera_institucion
-                                y comparar si el id_inst_carrera recuperado es igual al de la tabla se imprime el valor obtenido, 
-                                caso contrario se imprime 0-->
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>                                  
+                                {%for res in resultado if (res.id_institucion_formadora == univs.id)%}                                  
+                                    <th> {{res.numest}} </th>
+                                    <th> {{res.estex}} </th>
+                                    <th> {{res.aprobados}} </th>
+                                    <th> {{res.reprobados}} </th>
+                                    <th> {{res.minimo}} </th>
+                                    <th> {{res.maximo}} </th>
+                                    
+                                {% endfor %} 
                             </tr>                           
                         {% endfor%}
                     </tbody>           

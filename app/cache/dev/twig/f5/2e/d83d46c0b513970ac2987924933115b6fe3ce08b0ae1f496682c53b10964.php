@@ -28,47 +28,84 @@ class __TwigTemplate_f52ed83d46c0b513970ac2987924933115b6fe3ce08b0ae1f496682c53b
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "<div class=\"container\">
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
+        echo "
+    <div class=\"container\">
         <div class=\"panel panel-info\">  
             <div class=\"panel-heading\">Informe de plazas remuneradas y ad-honorem de estudiantes por region, universidad y carrera</div>
             <div class=\"panel-body text-center\" >
                 <div class=\"divParam\">
                     <p>Parámetros necesarios para generar el reporte</p>
                     <table class=\"tablaCent\">
-                        <tr class=\"text-center\">
+                        <tr class=\"text-left\" height=\"25%\">
                             <td width=\"25%\">
+                                 <div> 
                                 <select>
                                     <option selected>Seleccione un período</option>
                                     <option value=\"1\">Período 1</option>
                                     <option value=\"2\">Período 2</option>
                                 </select>
+                                </div>  
                             </td>
-                             <td width=\"25%\">
+                            <td>
+                                <div class=\"text-center\"> 
                                 <select>
-                                    <option selected>Seleccione una universidad</option>                                        
-                                </select>
+                                    <option selected>Seleccione una Region</option>
+                                    <option value=\"1\">Region 1</option>
+                                    <option value=\"2\">Region 2</option>  
+                                    <option value=\"1\">Region 3</option>
+                                    <option value=\"2\">Region 4</option> 
+                                    <option value=\"2\">Region 5</option> 
+                                    
+                                </select> 
+                                 
+                               </div>   
                             </td>
+                            <td>
+                                <div class=\"text-center\"> Carrera <br>                              
+                                <input type=\"radio\" name=\"carrera\" id=\"carrera\" value=\"M\" class=\"left\"/>Medicina
+                                <input type=\"radio\" name=\"carrera\" id=\"carrera\" value=\"O\" class=\"left\"/>Odontología  
+                                </div> 
+                            </td> 
+                            
+                            
+                        </tr>   
+                        
+                        <tr class=\"text-left\" height=\"25%\">
                             <td width=\"25%\">
-                                <select>
-                                    <option selected>Seleccione una region</option>                                        
-                                </select>                                                                                              
-                            </td>
+                                    
+                            </td>   
+                        </tr>    
+                        
+                        </table>  
+                       <br>  
+                        <tr class=\"text-left\" height=\"25%\">
                             <td width=\"25%\">
-                                Carrera <br />                                
-                                <input type=\"radio\" name=\"carrera\" id=\"carrera\" value=\"M\" class=\"left\"/>Medicina <br />
-                                <input type=\"radio\" name=\"carrera\" id=\"carrera\" value=\"O\" class=\"left\"/>Odontología                                                                                              
-                            </td>                            
-                            <td width=\"25%\">
-                                <div class=\"btn-group\">
-                                    <button type=\"button\" class=\"btn btn-default\">Generar Reporte</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>                      
+                               <div class=\"text-center\">   
+                                ";
+        // line 57
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "selectuniv"), 'widget');
+        echo " 
+                               </div>   
+                               
+                               <br> 
+                                ";
+        // line 61
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "enviar"), 'widget');
+        echo " 
+                            </td>    
+                            
+                        </tr>   
+                                      
                 </div>                             
             </div>
         </div>
-    </div>     
+    </div>  
+                       
+  ";
+        // line 71
+        echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
+        echo "                       
 ";
     }
 
@@ -84,6 +121,6 @@ class __TwigTemplate_f52ed83d46c0b513970ac2987924933115b6fe3ce08b0ae1f496682c53b
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,);
+        return array (  107 => 71,  94 => 61,  87 => 57,  31 => 4,  28 => 3,);
     }
 }

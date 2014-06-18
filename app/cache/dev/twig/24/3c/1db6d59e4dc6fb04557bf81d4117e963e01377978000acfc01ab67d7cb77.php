@@ -36,32 +36,25 @@ class __TwigTemplate_243c1db6d59e4dc6fb04557bf81d4117e963e01377978000acfc01ab67d
             <div class=\"panel-body text-center\" >
                 <div class=\"divParam\">
                     <p>Parámetros necesarios para generar el reporte</p>                    
-                    <table class=\"table-param\">                                            
-                        <tr>                            
-                            <select>
-                                <option selected>Seleccione un período</option>
-                                <option value=\"1\">Período 1</option>
-                                <option value=\"2\">Período 2</option>
-                            </select>
-                        </tr>
+                    <table class=\"table-param\">                              
                         
                         <tr>                             
                             ";
-        // line 21
+        // line 14
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "selectcarr"), 'widget');
         echo "
                         </tr>
-                        
+                        <br />  
                         <tr>
                              ";
-        // line 25
+        // line 18
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "selectuniv"), 'widget');
         echo "                              
                         </tr>
-                        
+                        <br />  
                         <tr>
                             ";
-        // line 29
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "enviar"), 'widget');
         echo "
                         </tr>
@@ -72,7 +65,7 @@ class __TwigTemplate_243c1db6d59e4dc6fb04557bf81d4117e963e01377978000acfc01ab67d
         </div>
     </div>    
     ";
-        // line 37
+        // line 30
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 ";
@@ -90,6 +83,6 @@ class __TwigTemplate_243c1db6d59e4dc6fb04557bf81d4117e963e01377978000acfc01ab67d
 
     public function getDebugInfo()
     {
-        return array (  76 => 37,  65 => 29,  58 => 25,  51 => 21,  31 => 4,  28 => 3,);
+        return array (  69 => 30,  58 => 22,  51 => 18,  44 => 14,  31 => 4,  28 => 3,);
     }
 }

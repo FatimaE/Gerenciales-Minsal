@@ -3483,7 +3483,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.container_class' => 'appDevDebugProjectContainer',
             'database_driver' => 'pdo_pgsql',
             'database_host' => 'localhost',
-            'database_port' => '5433',
+            'database_port' => '5432',
             'database_name' => 'Base_SIG',
             'database_user' => 'postgres',
             'database_password' => 'Admindb123',

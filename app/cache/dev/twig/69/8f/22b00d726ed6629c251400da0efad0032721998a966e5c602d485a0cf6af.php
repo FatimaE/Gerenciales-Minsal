@@ -34,7 +34,20 @@ class __TwigTemplate_698f22b00d726ed6629c251400da0efad0032721998a966e5c602d485a0
         // line 6
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/Encabezado_reportes.png"), "html", null, true);
         echo "\">
-                <p>Cuadro estadístico de los resultados de la prueba de conocimiento por carrera</p>
+               
+                <p>Cuadro estadístico de los resultados de la prueba de conocimiento de la carrera de";
+        // line 8
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["carreraNombre"]) ? $context["carreraNombre"] : $this->getContext($context, "carreraNombre")));
+        foreach ($context['_seq'] as $context["_key"] => $context["car"]) {
+            echo " ";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["car"]) ? $context["car"] : $this->getContext($context, "car")), "nombre"), "html", null, true);
+            echo " ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['car'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        echo "</p>
                 <br />
                 <br />
                 <table class=\"table table-striped table-hover table-condensed\" border=\"1\">
@@ -51,36 +64,67 @@ class __TwigTemplate_698f22b00d726ed6629c251400da0efad0032721998a966e5c602d485a0
                     </thead>
                     <tbody class=\"table-param\">
                         ";
-        // line 23
+        // line 24
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["universidad"]) ? $context["universidad"] : $this->getContext($context, "universidad")));
         foreach ($context['_seq'] as $context["_key"] => $context["univs"]) {
-            // line 24
+            // line 25
             echo "                            <tr>
                                 <th>";
-            // line 25
+            // line 26
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["univs"]) ? $context["univs"] : $this->getContext($context, "univs")), "nombre"), "html", null, true);
             echo "</th>
-                                <!--Hay que hacer un for (para cada col dentro de fla), para cada registro en carrera_institucion
-                                y comparar si el id_inst_carrera recuperado es igual al de la tabla se imprime el valor obtenido, 
-                                caso contrario se imprime 0-->
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>
-                                <th>1</th>                                  
+                                ";
+            // line 27
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["resultado"]) ? $context["resultado"] : $this->getContext($context, "resultado")));
+            foreach ($context['_seq'] as $context["_key"] => $context["res"]) {
+                if (($this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "id_institucion_formadora") == $this->getAttribute((isset($context["univs"]) ? $context["univs"] : $this->getContext($context, "univs")), "id"))) {
+                    echo "                                  
+                                    <th> ";
+                    // line 28
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "numest"), "html", null, true);
+                    echo " </th>
+                                    <th> ";
+                    // line 29
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "estex"), "html", null, true);
+                    echo " </th>
+                                    <th> ";
+                    // line 30
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "aprobados"), "html", null, true);
+                    echo " </th>
+                                    <th> ";
+                    // line 31
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "reprobados"), "html", null, true);
+                    echo " </th>
+                                    <th> ";
+                    // line 32
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "minimo"), "html", null, true);
+                    echo " </th>
+                                    <th> ";
+                    // line 33
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["res"]) ? $context["res"] : $this->getContext($context, "res")), "maximo"), "html", null, true);
+                    echo " </th>
+                                    
+                                ";
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['res'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 35
+            echo " 
                             </tr>                           
                         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['univs'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 38
         echo "                    </tbody>           
                 </table> 
                     <a href=\"";
-        // line 39
+        // line 40
         echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_pruebaCon");
         echo "\"> Regresar </a>          
                 <br />
@@ -104,6 +148,6 @@ class __TwigTemplate_698f22b00d726ed6629c251400da0efad0032721998a966e5c602d485a0
 
     public function getDebugInfo()
     {
-        return array (  84 => 39,  80 => 37,  62 => 25,  59 => 24,  55 => 23,  35 => 6,  31 => 4,  28 => 3,);
+        return array (  128 => 40,  124 => 38,  116 => 35,  106 => 33,  102 => 32,  98 => 31,  94 => 30,  90 => 29,  86 => 28,  79 => 27,  75 => 26,  72 => 25,  68 => 24,  40 => 8,  35 => 6,  31 => 4,  28 => 3,);
     }
 }
