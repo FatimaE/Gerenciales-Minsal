@@ -43,7 +43,7 @@
                             <li><a href="{{url('minsal_si_gminsal_sig_consultarUsuario')}}">Usuarios</a></li> 
 		     {% endif %}
 		     {% if app.session.get('id_rol') == 2 %} 
-			    <li><a href="#">Perfil</a></li>
+			    <li><a href={{url('minsal_si_gminsal_sig_perfil_tact')}}>Perfil</a></li>
 			    <li><a href="{{url('minsal_si_gminsal_sig_cum')}}">Mejor CUM de Estudiantes</a></li>
 			    <li><a href="{{url('minsal_si_gminsal_sig_pruebaCon')}}">Prueba de Conocimiento</a></li>
 			    <li><a href="{{url('minsal_si_gminsal_sig_plazas')}}">Remunerados y Ad-Honorem</a></li>
@@ -52,7 +52,7 @@
 			    <li><a href="{{url('minsal_si_gminsal_sig_informefinal')}}">Informe final</a></li>					    
 		     {% endif %}    
 		     {% if app.session.get('id_rol') == 3 %} 
-			     <li><a href="#">Perfil</a></li>
+			     <li><a href="{{url('minsal_si_gminsal_sig_perfil_est')}}">Perfil</a></li>
 			     <li><a href="{{url('minsal_si_gminsal_sig_promPrueba')}}">Prueba de Conocimiento</a></li>
 			     <li><a href="{{url('minsal_si_gminsal_sig_conplazas')}}">Consolidado de Plazas</a></li>
 			     <li><a href="{{url('minsal_si_gminsal_sig_estudiantes')}}">Estudiantes Aptos para SS</a></li>

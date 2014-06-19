@@ -390,6 +390,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\PruebaConController::todosAction',  '_route' => 'minsal_si_gminsal_sig_rep2_tact_todo',);
         }
 
+        if (0 === strpos($pathinfo, '/perfil')) {
+            // minsal_si_gminsal_sig_perfil_tact
+            if ($pathinfo === '/perfilt') {
+                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\PerfilTacController::PerfilTacAction',  '_route' => 'minsal_si_gminsal_sig_perfil_tact',);
+            }
+
+            // minsal_si_gminsal_sig_perfil_est
+            if ($pathinfo === '/perfile') {
+                return array (  '_controller' => 'minsalSIG\\minsalSIGBundle\\Controller\\PerfilEstController::PerfilEstAction',  '_route' => 'minsal_si_gminsal_sig_perfil_est',);
+            }
+
+        }
+
         // _welcome
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
