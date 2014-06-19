@@ -79,3 +79,9 @@ minsal_si_gminsal_sig_conTodos1:
 minsal_si_gminsal_sig_rep2_tact_todo:
     pattern:  /rep2
     defaults: { _controller: minsalSIGminsalSIGBundle:PruebaCon:todos }
+minsal_si_gminsal_sig_perfil_tact:
+    pattern:  /perfilt
+    defaults: { _controller: minsalSIGminsalSIGBundle:PerfilTac:PerfilTac }
+minsal_si_gminsal_sig_perfil_est:
+    pattern:  /perfile
+    defaults: { _controller: minsalSIGminsalSIGBundle:PerfilEst:PerfilEst }

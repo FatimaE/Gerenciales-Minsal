@@ -151,7 +151,10 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         echo "\t\t     ";
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 2)) {
             echo " 
-\t\t\t    <li><a href=\"#\">Perfil</a></li>
+\t\t\t    <li><a href=";
+            // line 46
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_perfil_tact");
+            echo ">Perfil</a></li>
 \t\t\t    <li><a href=\"";
             // line 47
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_cum");
@@ -184,7 +187,10 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
         // line 54
         if (($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "get", array(0 => "id_rol"), "method") == 3)) {
             echo " 
-\t\t\t     <li><a href=\"#\">Perfil</a></li>
+\t\t\t     <li><a href=\"";
+            // line 55
+            echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_perfil_est");
+            echo "\">Perfil</a></li>
 \t\t\t     <li><a href=\"";
             // line 56
             echo $this->env->getExtension('routing')->getUrl("minsal_si_gminsal_sig_promPrueba");
@@ -260,6 +266,6 @@ class __TwigTemplate_89ef75e6a9add832efd4952d3617e803659c032208a2c0fc0f116bdb81a
 
     public function getDebugInfo()
     {
-        return array (  251 => 82,  247 => 81,  242 => 80,  239 => 79,  230 => 74,  223 => 71,  217 => 67,  211 => 62,  206 => 60,  202 => 59,  198 => 58,  194 => 57,  190 => 56,  185 => 54,  182 => 53,  177 => 52,  173 => 51,  169 => 50,  165 => 49,  161 => 48,  157 => 47,  151 => 45,  146 => 43,  142 => 42,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 84,  60 => 79,  57 => 78,  55 => 71,  48 => 67,  44 => 65,  42 => 14,  37 => 11,  35 => 6,  25 => 1,  31 => 5,  28 => 3,);
+        return array (  257 => 82,  253 => 81,  248 => 80,  245 => 79,  236 => 74,  229 => 71,  223 => 67,  217 => 62,  212 => 60,  208 => 59,  204 => 58,  200 => 57,  196 => 56,  192 => 55,  188 => 54,  185 => 53,  180 => 52,  176 => 51,  172 => 50,  168 => 49,  164 => 48,  160 => 47,  156 => 46,  151 => 45,  146 => 43,  142 => 42,  137 => 41,  135 => 40,  121 => 29,  116 => 27,  109 => 23,  99 => 15,  96 => 14,  90 => 10,  86 => 9,  82 => 8,  77 => 7,  74 => 6,  68 => 5,  62 => 84,  60 => 79,  57 => 78,  55 => 71,  48 => 67,  44 => 65,  42 => 14,  37 => 11,  35 => 6,  31 => 5,  25 => 1,);
     }
 }

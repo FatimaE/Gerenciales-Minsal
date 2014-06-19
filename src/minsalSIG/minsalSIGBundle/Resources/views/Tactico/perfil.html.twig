@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}    
+    <div class="container">
+        <div class="panel panel-info">  
+            <div class="panel-heading">Perfil del usuario táctico</div>
+            <div class="panel-body text-center" >
+                <div class="divPerfil">
+                 {%for dat in datos %}    
+                     <legend class="legends">Datos personales</legend>
+                        <br />
+                     <table class="table-borderless" >                       
+                        <tr class="table-borderless">
+                            <th width="50%" class="indicadores">Nombre de usuario:  </th>
+                            {% set nom = dat.primer_nombre %}
+                            {% set ape = dat.primer_apellido %}
+                            <th width="60%" class="datos">{{ nom ~ ape }}</th>
+                        </tr>
+                        <tr class="table-borderless">
+                            <th width="50%" class="indicadores">Cargo:  </th>                            
+                            <th width="60%" class="datos">{{dat.descripcion}}</th>
+                        </tr>
+                        <tr class="table-borderless">
+                            <th width="50%" class="indicadores">Rol de usuario:  </th>                            
+                            <th width="60%" class="datos">{{dat.descripcion_rol}}</th>
+                        </tr>
+                        <tr class="table-borderless">
+                            <th width="50%" class="indicadores">Correo institucional:  </th>                            
+                            <th width="60%" class="datos">{{dat.email_institucional}}</th>
+                        </tr>
+                       <br />
+                     </table>
+                        <br />
+                        <legend class="legends">Datos de Sesión</legend>
+                        <br />
+                        <table class="table-borderless">                            
+                            <tr class="table-borderless">
+                                <th width="70%" class="indicadores">Nombre de Usuario:  </th>                            
+                                <th width="60%" class="datos">{{dat.username}}</th>
+                            </tr>
+                            <tr class="table-borderless">
+                                <th width="50%" class="indicadores">Contraseña:  </th>                            
+                                <th width="60%" class="datos">{{dat.password}}</th>
+                            </tr>
+                        </table>
+                       
+                        
+                 {%endfor%}                         
+                </div>                           
+            </div>
+        </div>
+    </div>        
+{% endblock %}   
+    
