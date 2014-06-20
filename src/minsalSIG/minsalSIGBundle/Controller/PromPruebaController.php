@@ -14,20 +14,22 @@ class PromPruebaController extends Controller
         
 	//para obtener los datos de la carrera como de la institución
         $repository=$this->getDoctrine();
-        $carreras=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->findAll();      	 
+//        $carreras=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->findAll();      	 
         $universidad=$repository->getRepository('minsalSIGminsalSIGBundle:SsInstitucionFormadora')->findAll();
+        $carreras=$repository->getRepository('minsalSIGminsalSIGBundle:SsCarrera')->findBY(array(), array('id' => 'ASC'));
 
         //Creando lo que llevara los select
         if(count($carreras)>0){       	 
-        $carr=array();       	 
-        foreach($carreras as $carrera) //------ $carreras arreglo <--- $carrera valor individual
-        {            	 
-                $carr[$carrera->getId()]= $carrera->getNombre();               	 
-        }               	 
+            $carr=array();
+            $carr[0]= 'Todas las carreras'; 
+            foreach($carreras as $carrera){ // $carreras arreglo <-- $carrera valor individual           	 
+                    $carr[$carrera->getId()]= $carrera->getNombre();               	 
+            }               	 
         }
 
         if(count($universidad)>0){       	 
-            $institucion=array();       	 
+            $institucion=array();
+            $institucion[0]= 'Todas las universidades';
             foreach($universidad as $univ){            	 
                 $institucion[$univ->getId()]= $univ->getNombre();               	 
             }               	 
@@ -40,69 +42,82 @@ class PromPruebaController extends Controller
                 ->add('Generar', 'submit')->getForm();
 
         $form->handleRequest($request);
-        
+        // Fin formulario
         
 
-//        $varId=$form->get('selectcarr')->getData();
-//        $univId=$form->get('selectuniv')->getData();
-        
-        $varId=$univId=$c_Id=$resultado_notas=$c_i=NULL;
+        $carreraId=$univId=$c_Id=$c_i=$e=NULL;  // Valores por defecto (variables para generar reporte)
         
         if ($form->isValid()) {
-            $varId = $carr[$form->get('selectcarr')->getData()];         // Introducir los valores del select 
-            $univId = $institucion[$form->get('selectuniv')->getData()]; // en las variables que se redireccionan a la misma vista.
+            $carreraId = $carr[$form->get('selectcarr')->getData()];     // Introducir los valores del select 
+            $universidadId = $institucion[$form->get('selectuniv')->getData()]; // en las variables que se redireccionan a la misma vista.
             
-            $c_Id = $form->get('selectcarr')->getData();  // Introducir los id de la carrera y la institucion 
-            $u_Id = $form->get('selectuniv')->getData();  //   
-            
-            ///////////////// Carrera e Institucion Formadora ////////////////////////////////////////////
-            $repository = $this->getDoctrine()->getRepository('minsalSIGminsalSIGBundle:SsCarreraInstForm');                    
-            $query = $repository->createQueryBuilder('ci')
-                ->where('ci.idCarrera = :carrera AND ci.idInstitucionFormadora=:universidad')
-                ->setParameters(array('carrera' => $c_Id, 'universidad' => $u_Id))                   
-//            ->orderBy('p.price', 'ASC')
-                ->getQuery();
-            $carrera_institucion= $query->getResult();
-            
-            if(count($carrera_institucion)>0){       	 
-                $a_ci=array(); $i=0;      	 
-                foreach($carrera_institucion as $carrera) ///------ $carrera_institucion arreglo <--- $carrera valor individual
-                {            	 
-                    $a_ci[$i]= $carrera->getId();               	 
-                    $i++;
-                }  
-                $c_i= $a_ci[0];
-                
-            ///////////////////// Estudiantes- Carrera-Institución Formadora /////////////////////////
-            $repository = $this->getDoctrine()->getRepository('minsalSIGminsalSIGBundle:SsEstudiante');                    
-            $query = $repository->createQueryBuilder('e')
-                ->select("avg(e.notaPrueba) as promedio")
-                ->where('e.idCarreraInstForm = :carrera_institucion')
-                ->setParameter('carrera_institucion', $c_i)       
-//            ->orderBy('p.price', 'ASC')
-                ->getQuery();
-            $resultado_notas = $query->getResult();
+            $c_Id = $form->get('selectcarr')->getData();  // Introducir los id de la carrera 
+            $u_Id = $form->get('selectuniv')->getData();  //  y la institucion (universidad)
             
             
-
-
-//            return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba.html.twig', array('form' => $form->createView(), 'carrera' => $carreras, 'universidad' => $universidad,'varId' => $varId, 'univId' => $univId));
-//            
-            return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba.html.twig',array('form' => $form->createView(), 'varId' => $varId, 'univId' => $univId, 'c_Id' =>$resultado_notas, 'c_i'=>$c_i));
+            // Creando vistas de acuerdo a selección del 'choice'
+            // 
+            //Seleccionar todas las carreras
+            if($c_Id == 0){
+                //Seleccionar todas las carreras, todas las universidades
+                if($u_Id == 0){                                                   
+                    $conn = $this->get('database_connection');
+                    $resultado = $conn->fetchAll('SELECT ci.id, ci.id_carrera, ci.id_institucion_formadora, avg(nota_prueba) promedio
+                                                    FROM ss_carrera_inst_form ci LEFT OUTER JOIN ss_estudiante e
+                                                        ON (ci.id = e.id_carrera_inst_form)
+                                                    GROUP BY ci.id, ci.id_carrera, ci.id_institucion_formadora
+                                                    ORDER BY ci.id');
+                                                                       
+                    return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba1.html.twig', array('carreras' => $carreras, 'universidades' => $universidad, 'resultados'=>$resultado));                                                                                     
+                }
+                else 
+                   //Seleccionar todas carreras, una universidad
+                    if($u_Id != 0){
+                        $conn = $this->get('database_connection');
+                        $resultado = $conn->fetchAll('SELECT ci.id, ci.id_carrera, ci.id_institucion_formadora, avg(nota_prueba) promedio                                                         
+                                                        FROM ss_carrera_inst_form ci LEFT OUTER JOIN ss_estudiante e
+                                                            ON (ci.id=e.id_carrera_inst_form)
+                                                        WHERE ci.id_institucion_formadora= '.$u_Id.'
+                                                        GROUP BY ci.id, ci.id_carrera, ci.id_institucion_formadora
+                                                        ORDER BY ci.id;');
+                                                                       
+                        return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba2.html.twig', array('carreras' => $carreras, 'universidad' => $universidadId, 'resultados'=>$resultado)); 
+                    }
             }
-            
-            
+            //Selecciona una carrera
+            else
+                if($c_Id != 0){
+                    //Selecciona una carrera todas las universidades
+                    if($u_Id == 0){
+                        $conn = $this->get('database_connection');
+                        $resultado = $conn->fetchAll('SELECT ci.id, ci.id_carrera, ci.id_institucion_formadora, avg(nota_prueba) promedio
+                                                        FROM ss_carrera_inst_form ci LEFT OUTER JOIN ss_estudiante e
+                                                            ON (ci.id=e.id_carrera_inst_form)
+                                                        WHERE ci.id_carrera= '.$c_Id.'
+                                                        GROUP BY ci.id, ci.id_carrera, ci.id_institucion_formadora
+                                                        ORDER BY ci.id');
+                                                                       
+                        return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba3.html.twig', array('carrera' => $carreraId, 'universidades' => $universidad, 'resultados'=>$resultado)); 
+                    }
+                    else//Selecciona una carrera una universidad
+                        if($u_Id != 0){  
+                            $conn = $this->get('database_connection');
+                            $resultado = $conn->fetchAll('SELECT ci.id, ci.id_carrera, ci.id_institucion_formadora, avg(nota_prueba) promedio
+                                                            FROM ss_carrera_inst_form ci LEFT OUTER JOIN ss_estudiante e
+                                                                ON (ci.id=e.id_carrera_inst_form)
+                                                            WHERE ci.id_institucion_formadora = '.$u_Id.' AND ci.id_carrera = '.$c_Id.' 
+                                                            GROUP BY ci.id, ci.id_carrera, ci.id_institucion_formadora
+                                                            ORDER BY ci.id');
+                                                                       
+                            return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba4.html.twig', array('carrera' => $carreraId, 'universidad' => $universidadId, 'resultados'=>$resultado)); 
+                        }
+                }        
+        }
         
-
-        }	
-//             return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba.html.twig',array('form' => $form->createView(), 'carrera' => $carreras, 'universidad' => $universidad,'varId' => $varId, 'univId' => $univId));
-             return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba.html.twig',array('form' => $form->createView(), 'varId' => $varId, 'univId' => $univId,'c_Id' =>$resultado_notas,'c_i'=>$c_i));
-
+        
+                     
+        return $this->render('minsalSIGminsalSIGBundle:Estrategico:promPrueba.html.twig',array('form' => $form->createView(), 'carrera' => $carreras, 'universidad' => $universidad));
      }
 }
-
-
-
-
 
 

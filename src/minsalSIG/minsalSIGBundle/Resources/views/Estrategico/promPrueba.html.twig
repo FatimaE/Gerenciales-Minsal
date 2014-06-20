@@ -40,58 +40,7 @@
     	</div>
                                         </div>
                                         {# tabla de reportes ..........................#}
-                        <div class="container">
                         
-                            <div class="panel panel-info">  
-                            <div class="panel-heading">Promedio general de prueba de conocimiento por institución formadora</div>
-                                
-                                <table class="centerTable">
-                                    
-                                    <tr >
-                                      
-                                      <td ><p>Carrera</p>
-                                          <p> {{ varId }}<p>
-                                      </td>  
-                                      <td><p>Universidad</p>
-                                          <p>{{ univId }}</p>
-                                          </td>
-                                          <td><p>Nota Promedio</p>
-                                          <p> 
-                                              
-                                              {% for carr in c_Id %}
-
-                                              {{ carr.promedio|round(2, 'floor') }}
-                            
-                                                {% endfor %}
-                                                  
-                                          </p>
-                                          </td>
-                                          {#<td><p>c_i</p>
-                                          <p> 
-                                              
-                                              {{ c_i }}
-                                                
-                                                  
-                                          </p>
-                                          </td>#}
-                                          
-                                    </tr>
-                                     
-                                </table>
-                                   
-                        </div>
-
-                            </div>
-                        
-                        
-                        <div class="container">
-    	<div class="panel panel-info">  
-        	<div class="panel-heading"><a href="{{url('minsal_si_gminsal_sig_promPrueba')}}"> Restablecer</a> </div>
-        	<div class="panel-body text-center" >            	      	 
-        	</div>
-             	 
-    	</div>
-	</div>	 
                                         
 {#	</div>#}
        {{form_end(form)}}
