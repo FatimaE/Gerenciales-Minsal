@@ -6,7 +6,7 @@
            
             <div class="panel-body text-center" >    
                 <img src="{{asset('images/Encabezado_reportes.png')}}">
-                <p><strong>Promedio general de prueba de conocimiento por institución formadora</strong></p>
+                <p><strong>Cuadro comparativo del monto total de plazas remuneradas por carrera</strong></p>
                 <br />
                 <br />
                 <table class="table table-striped table-hover table-condensed" border="1">
@@ -16,32 +16,30 @@
                       <th class="table-header" colspan="15" align="center">Carrera</th>                      
                     </tr>
                     <tr>
-                        {%for carrera in carreras%}
-                          <th>{{carrera.nombre}}</th>    
-                        {% endfor %}                      
+                          <th>{{ carrera }}</th>    
                     </tr>
                     </thead>
                     <tbody class="table-param">
+                        {%for universidad in universidades%}
                             <tr>
-                                <th>{{ universidad }}</th>                                
-                                {% for carrera in carreras%}
-                                    {% set impresion = 0 %} <!-- Bandera de impresion valida -->
-                                    {% for resultado in resultados if (resultado.id_carrera==carrera.id) %}                                                                           
-                                        {% if (resultado.promedio != 0) %} <!-- Si el valor es distinto de 0, se escribe -->
-                                            <th> {{ resultado.promedio|round(2, 'floor') }} </th>
-                                            {% set impresion=1%} <!-- Cambio de Bandera a impresion valida-->                                  
+                                <th>{{universidad.nombre}}</th>                                
+                                    {% set impresion=0%} <!-- Bandera de impresion valida -->
+                                    {% for resultado in resultados if (resultado.id_institucion_formadora == universidad.id) %}                                                                           
+                                        {% if (resultado.monto != 0) %} <!-- Si el valor es distinto de 0, se escribe -->
+                                            <th> ${{ resultado.monto*10 }} </th>
+                                            {% set impresion=1 %}  <!-- Cambio de Bandera a impresion valida-->                                        
                                         {% endif %}
                                     {% endfor %}                               
                                     {% if impresion == 0 %} <!-- Si no se encontro un campo valido a imprimir, se imprime un campo vacío -->
                                         <th> </th> 
-                                    {% endif %}
-                                {% endfor %}                                                               
+                                    {% endif %}  
                             </tr>                           
+                        {% endfor%}
                     </tbody>                          
               
                 </table>                    
                         
-                <a href="{{url('minsal_si_gminsal_sig_promPrueba')}}"> Regresar </a>                 
+                <a href="{{url('minsal_si_gminsal_sig_montoTotal')}}"> Regresar </a>                 
                 <br />
                 <br />  
                 
