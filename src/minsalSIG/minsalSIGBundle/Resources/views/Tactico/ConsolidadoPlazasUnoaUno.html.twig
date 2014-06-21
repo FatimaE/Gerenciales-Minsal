@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    
+    <div class="panel panel-info">  
+    
+        <div class="panel-body text-center" >
+            <img src="{{asset('images/Encabezado_reportes.png')}}">
+                <p>Reporte plazas Remuneradas y Ad-Honorem</p>
+                <br />
+                <br />
+            <table class="table table-striped table-hover table-condensed" border="1">
+              <thead class="table-param">
+                <tr align="center">
+                    <th class="table-header" rowspan="2" align="center" valign="top"><center>Universidad</center></th><br>
+            <th class="table-header" colspan="2" align="center"><center>{{nomCarr.nombre}}</center></th>
+            
+          
+               </tr>
+                <tr>
+                    
+                    <td align="center"> Plazas Remuneradas</td>
+                    <td align="center"> Plazas Ad-Honorem</td>
+                   
+                    
+                    
+                    
+                </tr>    
+              </thead> 
+              <tbody class="table-param">
+               
+                  <tr>
+                      <th>{{nomUniv.nombre}}</th>
+                       
+                        
+                        
+                        {%for res in resultado %}                                    
+                        <th> {{res.cuenta}} </th>
+                   
+                        {% endfor %}  
+                       </tr>  
+            </tbody>  
+            </table>
+            <a href="{{url('minsal_si_gminsal_sig_plazas')}}"> Regresar </a>          
+                 
+        </div>          
+    </div>    
+{% endblock %} 
+    
