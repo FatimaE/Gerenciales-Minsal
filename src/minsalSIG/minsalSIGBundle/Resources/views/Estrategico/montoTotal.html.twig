@@ -1,42 +1,51 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <div class="container">
-        <div class="panel panel-info">  
-            <div class="panel-heading">Cuadro comparativo del monto total de plazas remuneradas por carrera</div>
-            <div class="panel-body text-center" >                 
-                    <div class="divParam">
-                        <p>Parámetros necesarios para generar el reporte</p>
-                        <table class="tablaCent">
-                            <tr class="text-center">
-                                <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione un período</option>
-                                        <option value="1">Período 1</option>
-                                        <option value="2">Período 2</option>
-                                    </select>
-                                </td>
-                                 <td width="25%">
-                                    <select>
-                                        <option selected>Seleccione una universidad</option>                                        
-                                    </select>
-                                </td>
-                                <td width="25%">
-                                    Carrera <br />                                
-                                    <input type="radio" name="carrera" id="carrera" value="M" class="left"/>Medicina
-                                    <input type="radio" name="carrera" id="carrera" value="O" class="left"/>Odontología
-                                </td>
-                                <td width="28%">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-default">Generar Reporte</button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>                      
-                    </div>                                
-            </div>
-            <br />
-            <br />
-        </div>
-    </div>     
-{% endblock %}  
+	{{form_start(form)}}
+	<div class="container">    {# Revisar--------------------------------#}
+    	<div class="panel panel-info">  
+        	<div class="panel-heading"><strong>Cuadro comparativo del monto total de plazas remuneradas por carrera</strong></div>
+        	<div class="panel-body text-center" >            	 
+                	<div class="divParam">
+                    	<p>Parámetros necesarios para generar el reporte</p>
+                    	<table class="tablaCent">
+                        	<tr class="text-center" height="25%">
+                            	<td width="25%">
+                                	<select>
+                                    	<option selected>Seleccione un período</option>
+                                    	<option value="1">Período 1</option>
+                                    	<option value="2">Período 2</option>
+                                	</select>
+                            	</td>
+                            	<td width="25%">
+                                	{{form_widget(form.selectcarr)}}
+                            	</td>
+                        	                        	 
+                             	<td width="25%">    
+                                	{{form_widget(form.selectuniv)}}                                    	 
+                             	</td>                      	 
+                           	 
+                            	<td width="28%">
+                                	{{form_widget(form.Generar)}}                              	 
+                              	 
+                            	</td>
+                        	</tr>                   	
+                        </table>            
+                	</div>
+            	<br />
+            	<br />       	 
+        	</div>
+             	 
+                                        
+    	</div>
+                                        </div>
+                                      
+                        
+                                        
+       {{form_end(form)}}
+                      
+                                        
+                                        
+	
+{% endblock %}
+ 

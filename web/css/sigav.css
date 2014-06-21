@@ -13,8 +13,7 @@ body {
 	padding-top: 25px;
 }
 .table-header{
-	font-weight:bolder;        
-    border: 1px solid black;
+	font-weight:bolder;
 }
 input:required:invalid {
 	border: 1px solid red;
@@ -26,7 +25,6 @@ input:required:valid {
 #pass-info{
 	width: 50%;
 	height: 25px;
-	border: 1px solid #DDD;
 	border-radius: 4px;
 	color: #829CBD;
 	text-align: center;
@@ -34,7 +32,7 @@ input:required:valid {
 }
 #pass-info.weakpass{
 	border: 1px solid #FF9191;
-	background: #FFC7C7;
+	background: #F5A9E1;
 	color: #94546E;
 	text-shadow: 1px 1px 1px #FFF;
 }
@@ -58,14 +56,13 @@ input:required:valid {
 }
 #pass-info.vrystrongpass {
 	border: 1px solid #379137;
-	background: #48B448;
+	background: #5858FA;
 	color: #CDFFCD;
 	text-shadow: 1px 1px 1px #296429;
 }
 /*Tablas*/
-.table-borderless td, .table-borderless th, .table-borderless tr {
-	border:0; 
-        height: 100%; }
+.table-borderless td, .table-borderless th {
+	border: 0; }
 .centerTable{
 	text-align: center;
 }
@@ -105,51 +102,4 @@ text-align: center; }
 }
 .form-login .form-control:focus {
   z-index: 2;
-}
-
-/*Reportes*/
-.table-param { 
-    text-align: center; 
-    font-size: xx-small;
-    font-style: normal;
-    border: 1px solid black;
-}
-tr{
-    width: 25%;
-    height: 30%; 
-    text-align: center;
-    border: 1px solid black;
-}
-td{
-    text-align: center;
-    border: 1px solid black;
-}
-th{    
-    border: 1px solid black;
-}
-.divParam{
-    width:500px;
-    margin: auto;
-    padding: 15px;
-    background-color:#f5f5f5;
-    text-align: center;    
-}
-.datos{
-    font-size: medium;
-    font-style: normal;
-}
-.indicadores{
-    font-size: medium;
-    font-style: oblique;   
-}
-.divPerfil{
-    width:530px;
-    margin: auto;
-    padding: 15px;
-    background-color:#f5f5f5;
-    text-align: center;    
-}
-.legends{
-    font-size: medium;
-    font-style:italic;
 }

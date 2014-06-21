@@ -53,8 +53,8 @@ class EmpleadoController extends Controller
 				'attr' => array('class' => 'form-control')))
                         ->add('primerNombre', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Nombre', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))
 			->add('primerApellido', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Apellido', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
-                        ->add('emailInstitucional', 'text', array('max_length' => 50, 'attr' => array('class' => 'form-control', 'placeholder' => 'Email', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}")))			                       
-          		->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+                        ->add('emailInstitucional', 'text', array('max_length' => 50, 'attr' => array('class' => 'form-control', 'placeholder' => 'Email', 'title'=>'Este campo no puede estar vacio. Ingrese un email valido Ejemplo: alguien@gmail.com', "pattern" => "[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}")))			                       
+          		->add('Guardar', 'submit', array('label' => 'Guardar Empleado', 'attr' => array('class' => 'btn btn-info')))
 			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
                         ->getForm();
 		
@@ -107,7 +107,7 @@ class EmpleadoController extends Controller
 			->add('primerNombre', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Nombre', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))
 			->add('primerApellido', 'text', array('max_length' => 15, 'attr' => array('class' => 'form-control', 'placeholder' => 'Apellido', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
                         ->add('emailInstitucional', 'text', array('max_length' => 50, 'attr' => array('class' => 'form-control', 'placeholder' => 'Email', 'title'=>'Este campo no puede estar vacio. Ingrese un email valido Ejemplo: alguien@gmail.com', "pattern" => "[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}")))			                       
-          		->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+          		->add('Guardar', 'submit', array('label' => 'Guardar Empleado', 'attr' => array('class' => 'btn btn-info')))
 			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
                         ->getForm();
 		$form->handleRequest($request);

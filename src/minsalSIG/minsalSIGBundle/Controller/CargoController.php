@@ -34,7 +34,7 @@ class CargoController extends Controller
 		$form = $this->createFormBuilder($cargo)
                         ->add('nombreCargo', 'text', array('max_length' => 25, 'attr' => array('class' => 'form-control', 'placeholder' => 'Cargo', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
 			->add('descripcion', 'text', array('label' => 'Descripcion del cargo', 'max_length' => 75, 'attr' => array ('class' => 'form-control', 'placeholder' => 'Descripcion' )))
-			->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Guardar', 'submit', array('label' => 'Guardar Cargo', 'attr' => array('class' => 'btn btn-info')))
 			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
                         ->getForm();
                 
@@ -64,7 +64,7 @@ class CargoController extends Controller
 		$form = $this->createFormBuilder($cargo)
                         ->add('nombreCargo', 'text', array('max_length' => 25, 'attr' => array('class' => 'form-control', 'placeholder' => 'Cargo', 'title'=>'Este campo no puede estar vacio. Solo ingrese letras y espacios', "pattern" => "([a-zA-Z Ññáéíóú /\s/])+")))			
 			->add('descripcion', 'text', array('label' => 'Descripcion del cargo', 'max_length' => 75, 'attr' => array ('class' => 'form-control', 'placeholder' => 'Descripcion' )))
-			->add('Guardar', 'submit', array('label' => 'Guardar Usuario', 'attr' => array('class' => 'btn btn-info')))
+			->add('Guardar', 'submit', array('label' => 'Guardar Cargo', 'attr' => array('class' => 'btn btn-info')))
 			->add('Limpiar', 'reset', array('label' => 'Limpiar Campos', 'attr' => array('class' => 'btn  btn-default')))
                         ->getForm();
 		$form->handleRequest($request);

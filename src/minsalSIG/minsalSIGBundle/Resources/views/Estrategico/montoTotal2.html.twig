@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    
+        <div class="panel panel-info">  
+           
+            <div class="panel-body text-center" >    
+                <img src="{{asset('images/Encabezado_reportes.png')}}">
+                <p><strong>Cuadro comparativo del monto total de plazas remuneradas por carrera</strong></p>
+                <br />
+                <br />
+                <table class="table table-striped table-hover table-condensed" border="1">
+                    <thead class="table-param">
+                    <tr align="center">
+                      <th class="table-header" rowspan="2" align="center" >Universidad</th>
+                      <th class="table-header" colspan="15" align="center">Carrera</th>                      
+                    </tr>
+                    <tr>
+                        {%for carrera in carreras if(carrera.id==1 or carrera.id==2) %}
+                          <th>{{carrera.nombre}}</th>    
+                        {% endfor %}                      
+                    </tr>
+                    </thead>
+                    <tbody class="table-param">
+                            <tr>
+                                <th>{{ universidad }}</th>                                
+                                {%for carrera in carreras if(carrera.id==1 or carrera.id==2) %}
+                                    {% set impresion = 0 %} <!-- Bandera de impresion valida -->
+                                    {% for resultado in resultados if (resultado.id_carrera==carrera.id) %}                                                                           
+                                        {% if (resultado.monto != 0) %} <!-- Si el valor es distinto de 0, se escribe -->
+                                            <th> ${{ resultado.monto*10 }} </th>
+                                            {% set impresion=1 %} <!-- Cambio de Bandera a impresion valida-->                                  
+                                        {% endif %}
+                                    {% endfor %}                               
+                                    {% if impresion == 0 %} <!-- Si no se encontro un campo valido a imprimir, se imprime un campo vacío -->
+                                        <th> </th> 
+                                    {% endif %}
+                                {% endfor %}                                                               
+                            </tr>                           
+                    </tbody>                          
+              
+                </table>                    
+                        
+                <a href="{{url('minsal_si_gminsal_sig_montoTotal')}}"> Regresar </a>                 
+                <br />
+                <br />  
+                
+            </div>
+                  
+        </div>
+    
+{% endblock %} 

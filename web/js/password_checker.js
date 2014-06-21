@@ -21,23 +21,23 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 	$(password1).on('keyup', function(e) {
 		if(VryStrongPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('vrystrongpass').html("Muy Fuerte! (Perfecto, No olvides tu password!)");
+			passwordsInfo.removeClass().addClass('vrystrongpass').html("Muy Fuerte! La fortaleza es excelente");
 		}	
 		else if(StrongPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('strongpass').html("Fuerte! (Ingresa caracteres especiales para aumentar la fortaleza");
+			passwordsInfo.removeClass().addClass('strongpass').html("Fuerte! Para aumentar la fortaleza agrega caracteres especiales");
 		}	
 		else if(MediumPass.test(password1.val()))
 		{
-			passwordsInfo.removeClass().addClass('goodpass').html("Bueno! (Ingresa letras mayusculas para aumentar la fortaleza)");
+			passwordsInfo.removeClass().addClass('goodpass').html("Bueno! Para aumentar la fortaleza agrega letras mayusculas");
 		}
 		else if(WeakPass.test(password1.val()))
     	{
-			passwordsInfo.removeClass().addClass('stillweakpass').html("Debil! (Ingresa numeros para crear un buen password)");
+			passwordsInfo.removeClass().addClass('stillweakpass').html("Debil! Para aumentar la fortaleza agrega numeros");
     	}
 		else
 		{
-			passwordsInfo.removeClass().addClass('weakpass').html("Muy Debil! (Ingresa 5 o mas caracteres)");
+			passwordsInfo.removeClass().addClass('weakpass').html("Muy Debil! Para aumentar la fortaleza ingresa 5 o mas caracteres");
 		}
 	});
 	
@@ -45,9 +45,9 @@ function passwordStrengthCheck(password1, password2, passwordsInfo)
 		
 		if(password1.val() !== password2.val())
 		{
-			passwordsInfo.removeClass().addClass('weakpass').html("Los password no coinciden!");	
+			passwordsInfo.removeClass().addClass('weakpass').html("Las contraseñas no coinciden!");	
 		}else{
-			passwordsInfo.removeClass().addClass('goodpass').html("Los password coinciden!");	
+			passwordsInfo.removeClass().addClass('goodpass').html("Las contraseña coinciden!");	
 		}
 			
 	});

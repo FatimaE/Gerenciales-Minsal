@@ -52,7 +52,7 @@ class __TwigTemplate_4c190079edcf78f7a65dd9f9bf8c55edf6988e5e7dd6f3044aa2692469a
             $context["ape"] = $this->getAttribute((isset($context["dat"]) ? $context["dat"] : $this->getContext($context, "dat")), "primer_apellido");
             // line 17
             echo "                            <th width=\"60%\" class=\"datos\">";
-            echo twig_escape_filter($this->env, ((isset($context["nom"]) ? $context["nom"] : $this->getContext($context, "nom")) . (isset($context["ape"]) ? $context["ape"] : $this->getContext($context, "ape"))), "html", null, true);
+            echo twig_escape_filter($this->env, (((isset($context["nom"]) ? $context["nom"] : $this->getContext($context, "nom")) . " ") . (isset($context["ape"]) ? $context["ape"] : $this->getContext($context, "ape"))), "html", null, true);
             echo "</th>
                         </tr>
                         <tr class=\"table-borderless\">
@@ -97,7 +97,7 @@ class __TwigTemplate_4c190079edcf78f7a65dd9f9bf8c55edf6988e5e7dd6f3044aa2692469a
             echo "</th>
                             </tr>
                         </table>
-                       
+                            <br />                                                  
                         
                  ";
         }
